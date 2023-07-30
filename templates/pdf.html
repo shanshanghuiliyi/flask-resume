@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>PDF操作</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js"></script>
+<link type="text/css" href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet">
+<script type="text/javascript" src="../static/js/index.js" ></script>
+</head>
+<body>
+<input type="file" id="file-input">
+<div id="pdf-container"></div>
+<div id="btn-container">
+<button id="prev-page-btn" disabled>上一页</button>
+<button id="next-page-btn" disabled>下一页</button>
+<button id="zoom-in-btn" disabled>放大</button>
+<button id="zoom-out-btn" disabled>缩小</button>
+<button id="rotate-btn" disabled>旋转</button>
+</div>
+</body>
+</html>

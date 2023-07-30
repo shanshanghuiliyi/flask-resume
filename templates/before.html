@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title></title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Favicon -->
+		<!-- bootstrap CSS -->
+		<link rel="stylesheet" href="../static/css/bootstrap.min.css" type="text/css" media="all">
+		<!-- carousel CSS -->
+		<link rel="stylesheet" href="../static/css/owl.carousel.min.css" type="text/css" media="all">
+		<!-- animate CSS -->
+		<link rel="stylesheet" href="../static/css/animate.css" type="text/css" media="all">
+		<!-- animated-text CSS -->
+		<link rel="stylesheet" href="../static/css/animated-text.css" type="text/css" media="all">
+		<!-- font-awesome CSS -->
+		<link rel="stylesheet" href="../static/css/all.min.css" type="text/css" media="all">
+		<!-- font-flaticon CSS -->
+		<link rel="stylesheet" href="../static/css/flaticon.css" type="text/css" media="all">
+		<!-- theme-default CSS -->
+		<link rel="stylesheet" href="../static/css/theme-default.css" type="text/css" media="all">
+		<!-- meanmenu CSS -->
+		<link rel="stylesheet" href="../static/css/meanmenu.min.css" type="text/css" media="all">
+		<!-- transitions CSS -->
+		<link rel="stylesheet" href="../static/css/owl.transitions.css" type="text/css" media="all">
+		<!-- venobox CSS -->
+		<link rel="stylesheet" href="../static/css/venobox.css" type="text/css" media="all">
+		<!-- bootstrap icons -->
+		<link rel="stylesheet" href="../static/css/bootstrap-icons.css" type="text/css" media="all">
+		<!-- Main Style CSS -->
+		<link rel="stylesheet" href="../static/css/style.css" type="text/css" media="all">
+		<!-- responsive CSS -->
+		<link rel="stylesheet" href="../static/css/responsive.css" type="text/css" media="all">
+		<link rel="stylesheet" href="../static/css/before.css">
+		<!-- modernizr js -->
+		<script src="../static/js/modernizr-3.5.0.min.js"></script>
+	</head>
+	<body>
+		<!-- loder -->
+		<div class="loader-wrapper">
+			<div class="loader"></div>
+			<div class="loder-section left-section"></div>
+			<div class="loder-section right-section"></div>
+		</div>
+
+		<div class="header-area header_bg" id="sticky-header">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-md-3">
+						<!--logo-->
+						<div class="logo">
+							<a href=""><img src="../static/picture/logo1.png" alt="logo img"></a>
+						</div>
+					</div>
+					<div class="col-md-9">
+						<!--header-menu-->
+						<div class="header-menu">
+							<ul>
+								<li><a href="#">主页</a></li>
+								<li><a href="#">人才画像</a>
+									<ul class="sub-menu">
+										<li><a href="{{ url_for('picture') }}">了解人才画像</a></li>
+										<li><a href="{{ url_for('picture_detail') }}">人才画像服务</a></li>
+									</ul>
+								</li>
+								<li><a href="{{ url_for('client') }}">简历解析</a></li>
+								<li><a href="{{ url_for('fit') }}">人岗匹配</a></li>
+								<li><a href="{{ url_for('chief') }}">企业入口</a></li>
+							</ul>
+							<div class="header-menu-button">
+								<a href="#">你好，欢迎使用</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="mobile-menu-area sticky d-sm-block d-md-block d-lg-none ">
+			<div class="mobile-menu">
+				<nav class="header-menu">
+					<ul class="nav_scroll">
+						<li><a href="#">主页</a></li>
+								<li><a href="#">人才画像</a>
+									<ul class="sub-menu">
+										<li><a href="{{ url_for('picture') }}">了解人才画像</a></li>
+										<li><a href="{{ url_for('picture_detail') }}">人才画像服务</a></li>
+									</ul>
+								</li>
+								<li><a href="{{ url_for('client') }}">简历解析</a></li>
+								<li><a href="{{ url_for('fit') }}">人岗匹配</a></li>
+								<li><a href="{{ url_for('chief') }}">企业入口</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<div class="hero-area d-flex align-items-center">
+			<div class="container">
+				<div class="row d-flex align-items-center">
+					<div class="col-lg-6 col-md-6">
+						<!--hero-content-->
+						<div class="hero-content">
+<!--							<input type="file" id="fileInput">-->
+							<div class="hero-main-title">
+								<h1>名企精英都在用的专业简历</h1>
+								<!--								<h1>Life Coach Fast</h1>-->
+							</div>
+							<div class="hero-description">
+								<p>30 分钟快速制作一份完美简历，帮助 500 万人才直通面试</p>
+							</div>
+<!--							<button onclick="uploadFile()" class="switch_button button switch-btn">上传简历</button>-->
+							</br>
+							<button class="switch_button button switch-btn" data-bs-toggle="modal"
+								data-bs-target="#myModal">填写简历</button>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6">
+						<div class="hero-thumb">
+							<img src="../static/picture/hero-thumb.png" alt="hero img">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 模态框 -->
+		<div class="modal" id="myModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<form action="http://127.0.0.1:5000/jianli" method="POST">
+						<!-- 模态框头部 -->
+						<div class="modal-header">
+							<h4 class="modal-title">拟填写：</h4>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+						</div>
+
+						<!-- 模态框内容 -->
+						<div class="modal-body">
+							<p>名字：<input type="text" name="Name" /></p>
+							<p>意向职位：<input type="text" name="Job" /></p>
+						</div>
+
+						<!--       模态框底部 -->
+						<div class="modal-footer">
+							<p><input type="submit" value="细节填写" data-bs-dismiss="modal"
+									class="switch_button button switch-btn"></p>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="subscribe-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="subscribe-content text-center">
+							<div class="subscribe-title">
+								<h1>在这里，轻松创建一份出色的简历</h1>
+							</div>
+							<div class="subscribe-description">
+								<p>超过千万优秀人才的共同选择</p>
+							</div>
+							<div class="section-button">
+								<a class="active1" href="{{ url_for('jianli') }}">开始制作简历<i
+										class="bi bi-arrow-right"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="scroll-area">
+			<div class="top-wrap">
+				<div class="go-top-btn-wraper">
+					<div class="go-top go-top-button">
+						<i class="bi bi-chevron-double-up"></i>
+						<i class="bi bi-chevron-double-up"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- jquery js -->
+		<script src="../static/js/jquery-3.6.2.min.js"></script>
+		<script src="../static/js/popper.min.js"></script>
+		<!-- bootstrap js -->
+		<script src="../static/js/bootstrap.min.js"></script>
+		<!-- carousel js -->
+		<script src="../static/js/owl.carousel.min.js"></script>
+		<!-- counterup js -->
+		<script src="../static/js/jquery.counterup.min.js"></script>
+		<!-- waypoints js -->
+		<script src="../static/js/waypoints.min.js"></script>
+		<!-- wow js -->
+		<script src="../static/js/wow.js"></script>
+		<!-- imagesloaded js -->
+		<script src="../static/js/imagesloaded.pkgd.min.js"></script>
+		<!-- venobox js -->
+		<script src="../static/js/venobox.js"></script>
+		<!--  animated-text js -->
+		<script src="../static/js/animated-text.js"></script>
+		<!-- venobox min js -->
+		<script src="../static/js/venobox.min.js"></script>
+		<!-- isotope js -->
+		<script src="../static/js/isotope.pkgd.min.js"></script>
+		<!-- jquery meanmenu js -->
+		<script src="../static/js/jquery.meanmenu.js"></script>
+		<!-- jquery scrollup js -->
+		<script src="../static/js/jquery.scrollUp.js"></script>
+		<script src="../static/js/jquery.barfiller.js"></script>
+		<!-- jquery js -->
+		<!-- theme js -->
+		<script src="../static/js/theme.js"></script>
+		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+		<script>
+			window.uploadFile = function() {
+				// 获取文件输入框元素
+				var fileInput = document.getElementById('fileInput');
+
+				// 获取选择的文件
+				var file = fileInput.files[0];
+
+				// 创建FormData对象
+				var formData = new FormData();
+
+				// 将文件添加到FormData对象中
+				formData.append('file', file);
+
+				// 发送POST请求到接口
+				var xhr = new XMLHttpRequest();
+				xhr.open('POST', '/api/resumes/upload', true);
+				xhr.withCredentials = true;
+				xhr.onload = function() {
+					if (xhr.status === 200) {
+						// 上传成功
+						alert('文件上传成功');
+					} else {
+						// 上传失败
+						alert('文件上传失败');
+					}
+				};
+				xhr.send(formData);
+				xhr.onreadystatechange = function() {
+					if (xhr.readyState === 4 && xhr.status === 200) {
+						console.log(xhr.responseText);
+					}
+				}
+				xhr.onerror = function(error) {
+					console.log(error);
+				}
+			}
+			window.goToAnotherPage = function() {
+				// 跳转到另一个页面
+				window.location.href = '{{ url_for('write') }}';
+			}
+		</script>
+	</body>
+</html>

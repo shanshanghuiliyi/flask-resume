@@ -1,0 +1,664 @@
+<!DOCTYPE HTML>
+<html lang="en-US" xmlns="http://www.w3.org/1999/html">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>HR端</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Favicon -->
+
+		<!-- bootstrap CSS -->
+		<link rel="stylesheet" href="../static/css/bootstrap.min.css" type="text/css" media="all">
+		<!-- carousel CSS -->
+		<link rel="stylesheet" href="../static/css/owl.carousel.min.css" type="text/css" media="all">
+		<!-- animate CSS -->
+		<link rel="stylesheet" href="../static/css/animate.css" type="text/css" media="all">
+		<!-- animated-text CSS -->
+		<link rel="stylesheet" href="../static/css/animated-text.css" type="text/css" media="all">
+		<!-- font-awesome CSS -->
+		<link rel="stylesheet" href="../static/css/all.min.css" type="text/css" media="all">
+		<!-- font-flaticon CSS -->
+		<link rel="stylesheet" href="../static/css/flaticon.css" type="text/css" media="all">
+		<!-- theme-default CSS -->
+		<link rel="stylesheet" href="../static/css/theme-default.css" type="text/css" media="all">
+		<!-- meanmenu CSS -->
+		<link rel="stylesheet" href="../static/css/meanmenu.min.css" type="text/css" media="all">
+		<!-- transitions CSS -->
+		<link rel="stylesheet" href="../static/css/owl.transitions.css" type="text/css" media="all">
+		<!-- venobox CSS -->
+		<link rel="stylesheet" href="../static/css/venobox.css" type="text/css" media="all">
+		<!-- bootstrap icons -->
+		<link rel="stylesheet" href="../static/css/bootstrap-icons.css" type="text/css" media="all">
+		<!-- Main Style CSS -->
+		<link rel="stylesheet" href="../static/css/style.css" type="text/css" media="all">
+		<!-- responsive CSS -->
+		<link rel="stylesheet" href="../static/css/responsive.css" type="text/css" media="all">
+		<!-- modernizr js -->
+		<script src="../static/js/modernizr-3.5.0.min.js"></script>
+	</head>
+	<style>
+		.box{
+			background-color: white;
+			border-radius: 10px;
+			padding: 10px;
+			box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+			}
+		.wrap{
+			background-color: white;
+			border-radius: 10px;
+			padding: 10px;
+			box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+		}
+	</style>
+	<body>
+		<!-- loder -->
+		<div class="loader-wrapper">
+			<div class="loader"></div>
+			<div class="loder-section left-section"></div>
+			<div class="loder-section right-section"></div>
+		</div>
+
+		<div class="header-area header_bg" id="sticky-header">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-md-3">
+						<!--logo-->
+						<div class="logo">
+							<a href=""><img src="../static/picture/logo1.png" alt="logo img"></a>
+						</div>
+					</div>
+					<div class="col-md-9">
+						<!--header-menu-->
+						<div class="header-menu">
+							<ul>
+								<li><a href="#">主页</a></li>
+								<li><a href="#">人才画像</a>
+									<ul class="sub-menu">
+										<li><a href="{{ url_for('picture') }}">了解人才画像</a></li>
+										<li><a href="{{ url_for('picture_detail') }}">人才画像服务</a></li>
+									</ul>
+								</li>
+								<li><a href="{{ url_for('client') }}">简历解析</a></li>
+								<li><a href="{{ url_for('fit') }}">人岗匹配</a></li>
+								<li><a href="{{ url_for('chief') }}">企业入口</a></li>
+							</ul>
+							<div class="header-menu-button">
+								<a href="#">你好,欢迎使用</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="mobile-menu-area sticky d-sm-block d-md-block d-lg-none ">
+			<div class="mobile-menu">
+				<nav class="header-menu">
+					<ul class="nav_scroll">
+						<li><a href="#">主页</a></li>
+						<li><a href="#">人才画像</a>
+							<ul class="sub-menu">
+								<li><a href="{{ url_for('picture') }}">了解人才画像</a></li>
+								<li><a href="{{ url_for('picture_detail') }}">人才画像服务</a></li>
+							</ul>
+						</li>
+						<li><a href="{{ url_for('client') }}">简历解析</a></li>
+						<li><a href="{{ url_for('fit') }}">人岗匹配</a></li>
+						<li><a href="{{ url_for('chief') }}">企业入口</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+
+		<div class="breadcumb-area d-flex align-items-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<!--breadcumb-content-->
+						<div class="breacumb-content">
+							<div class="breadcumb-title">
+								<h1>企业入口</h1>
+							</div>
+							<div class="breadcumb-content-text">
+								<a href="index.html">主页</a><i class="fas fa-angle-right"></i><span>企业入口</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="about-area">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-6">
+						<div class="about-left">
+							<div class="about-thumb">
+								<img src="../static/picture/about-thumb.png" alt="about thumb">
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="about-right">
+							<div class="section-title">
+								<div class="section-sub-title">
+									<h4>热门岗位等你挑</h4>
+								</div>
+								<div class="section-main-title">
+									<h1>27.5万岗位等你来！事业单位、教育、人工智能等热门专场招聘！</h1>
+								</div>
+								<div class="section-description">
+									<p>数据类、研发类、算法类......</p>
+
+									<p>众多热门技术岗位，就等你来！</p>
+
+									<p>智臻简历邀你一起乘坐“数据智能”号飞船</p>
+
+									<p>释放技术和代码的巨大能量，</p>
+
+									<p>向数据智能的星辰大海发起进击！</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="brand-area">
+			<div class="container">
+				<div class="row">
+					<div class="brand-list owl-carousel">
+						<div class="col-lg-12">
+							<!--brand item-->
+							<div class="single-brand-item">
+								<div class="brand-thumb">
+									<img src="../static/picture/brand1.png" alt="brand img">
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-12">
+							<!--brand item-->
+							<div class="single-brand-item">
+								<div class="brand-thumb">
+									<img src="../static/picture/brand2.png" alt="brand img">
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-12">
+							<!--brand item-->
+							<div class="single-brand-item">
+								<div class="brand-thumb">
+									<img src="../static/picture/brand3.png" alt="brand img">
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-12">
+							<!--brand item-->
+							<div class="single-brand-item">
+								<div class="brand-thumb">
+									<img src="../static/picture/brand4.png" alt="brand img">
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-12">
+							<!--brand item-->
+							<div class="single-brand-item">
+								<div class="brand-thumb">
+									<img src="../static/picture/brand5.png" alt="brand img">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="plan-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<!--section title-->
+						<div class="section-title text-center">
+							<div class="section-sub-title">
+								<h4>上传岗位</h4>
+							</div>
+							<div class="section-main-title">
+								<h1>HR、员工推荐</h1>
+							</div>
+							<div class="section-description">
+								<p>让员工作为公司的代言人，公司的人际网络、“招聘人员”、被推荐的候选人都会增加。这个人际网不仅仅是你的员工，还包括员工的朋友以及朋友的人际网络。</p>
+								<p>比如一家拥有500名员工的公司，每个员工在他们的社交网络或邮件通讯录中有200个联系人，员工可以将招聘信息传送给100，000个联系人。如果1%的联系人申请这个工作机会，公司可以获得1000个申请人。
+								</p>
+								<p>而通常大多数的员工都拥有更大的人际网络——这也意味着可以传送给更大的圈子。</p>
+								<p>为了更好推动员工内推活动，公司很需要一个公平、公开、数据透明的内推平台，从而形成一个企业内推文化。链链快聘已经根据企业内推奖励机制自定义设定预约面试、offer入职、入职15天、入职30天等奖励金额，让参与内推的员工打通关游戏一样，不断激励员工发动身边的关系链，为企业输送合适的人才。同时，链链快聘支持求职者用自荐的方式，获取企业的招聘奖励。
+								</p>
+							</div>
+							<div class="section-button">
+								<input type="file" id="fileInput">
+								<br><br>
+								<a class="active1" href="#" id="myLink">上传文件<i class="bi bi-arrow-right"></i></a>
+								<a href="#" data-bs-toggle="modal" data-bs-target="#myModal">上传岗位<i
+										class="bi bi-arrow-right"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 模态框 -->
+		<div class="modal" id="myModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<form>
+						<!-- 模态框头部 -->
+						<div class="modal-header">
+							<h4 class="modal-title">请填写：</h4>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+						</div>
+
+						<!-- 模态框内容 -->
+						<div class="modal-body">
+							<p>职位名称：<input type="text" name="name" id="name" /></p>
+							<p>职位职责：<input type="text" name="job" id="job" /></p>
+							<p>职位要求：<input type="text" name="requirement" id="requirement" /></p>
+						</div>
+
+						<!--       模态框底部 -->
+						<div class="modal-footer">
+							<p><input value="上传" data-bs-dismiss="modal" type="button"
+									class="switch_button button switch-btn" id="submit"></p>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="plan-area-two d-flex align-items-center ">
+			<div class="container">
+				<div class="row ">
+					<div class="col-lg-12">
+						<div class="plan-video-icon">
+							<a class="video-vemo-icon venobox vbox-item" data-vbtype="youtube" data-autoplay="true"
+								href="#"> <i class="fas fa-play"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="chosse-us-area d-flex align-items-center">
+			<div class="container-fluid">
+				<div class="row d-flex align-items-center">
+					<div class="col-lg-6">
+
+					</div>
+					<div class="col-lg-6">
+						<div class="choose-us-right">
+							<!--section title-->
+							<div class="section-title">
+								<div class="section-sub-title">
+									<h4>岗位信息</h4>
+								</div>
+								<div class="section-main-title">
+									<h1>智臻简历，陪伴您找工作的全程，祝您前程无忧。</h1>
+								</div>
+								<div class="section-description">
+									<p>致力帮助找工作、求职者、大学生，解决找工作难题。</p>
+									<p>日更新数十万全职、人才招聘、职位、招工信息，真实准确有效。</p>
+								</div>
+							</div>
+							<div class="row" id="row">
+								<div class="col-lg-6">
+									<div class="about-icon-box">
+										<div class="about-icon">
+											<i class="fas fa-check"></i>
+										</div>
+										<div class="about-title">
+											<h3>IT service</h3>
+											<h4>26099</h4>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="about-icon-box">
+										<div class="about-icon">
+											<i class="fas fa-check"></i>
+										</div>
+										<div class="about-title">
+											<h3>Cyber Security</h3>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="about-icon-box">
+										<div class="about-icon">
+											<i class="fas fa-check"></i>
+										</div>
+										<div class="about-title">
+											<h3>Data Security</h3>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="wrap"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="subscribe-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="subscribe-content text-center">
+							<div class="subscribe-title">
+								<h1>在这里，轻松创建一份出色的简历</h1>
+							</div>
+							<div class="subscribe-description">
+								<p>超过千万优秀人才的共同选择</p>
+							</div>
+							<div class="section-button">
+								<a class="active1" href="{{ url_for('jianli') }}">开始制作简历<i
+										class="bi bi-arrow-right"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="scroll-area">
+			<div class="top-wrap">
+				<div class="go-top-btn-wraper">
+					<div class="go-top go-top-button">
+						<i class="bi bi-chevron-double-up"></i>
+						<i class="bi bi-chevron-double-up"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- jquery js -->
+		<script src="../static/js/jquery-3.6.2.min.js"></script>
+		<script src="../static/js/popper.min.js"></script>
+		<!-- bootstrap js -->
+		<script src="../static/js/bootstrap.min.js"></script>
+		<!-- carousel js -->
+		<script src="../static/js/owl.carousel.min.js"></script>
+		<!-- counterup js -->
+		<script src="../static/js/jquery.counterup.min.js"></script>
+		<!-- waypoints js -->
+		<script src="../static/js/waypoints.min.js"></script>
+		<!-- wow js -->
+		<script src="../static/js/wow.js"></script>
+		<!-- imagesloaded js -->
+		<script src="../static/js/imagesloaded.pkgd.min.js"></script>
+		<!-- venobox js -->
+		<script src="../static/js/venobox.js"></script>
+		<!--  animated-text js -->
+		<script src="../static/js/animated-text.js"></script>
+		<!-- venobox min js -->
+		<script src="../static/js/venobox.min.js"></script>
+		<!-- isotope js -->
+		<script src="../static/js/isotope.pkgd.min.js"></script>
+		<!-- jquery meanmenu js -->
+		<script src="../static/js/jquery.meanmenu.js"></script>
+		<!-- jquery scrollup js -->
+		<script src="../static/js/jquery.scrollUp.js"></script>
+		<script src="../static/js/jquery.barfiller.js"></script>
+		<!-- jquery js -->
+		<!-- theme js -->
+		<script src="../static/js/theme.js"></script>
+		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+		<script>
+			document.write('<script src="//' + (location.host || 'localhost').split(':')[0] +
+				':35929/livereload.js?snipver=1"></' + 'script>')
+		</script>
+		<script>
+			document.addEventListener('LiveReloadDisconnect', function() {
+				setTimeout(function() {
+					window.location.reload();
+				}, 500);
+			})
+		</script>
+		<script>
+			var myLink = document.getElementById("myLink");
+
+			myLink.addEventListener("click", function(event) {
+				event.preventDefault(); // 阻止链接的默认行为
+				// 获取文件输入框元素
+				var fileInput = document.getElementById('fileInput');
+
+				// 获取选择的文件
+				var file = fileInput.files[0];
+
+				// 创建FormData对象
+				var formData = new FormData();
+
+				// 将文件添加到FormData对象中
+				formData.append('file', file);
+
+				// 发送POST请求到接口
+				var xhr = new XMLHttpRequest();
+				xhr.open('POST', '/api/post/upload', true);
+				xhr.withCredentials = true;
+				xhr.onload = function() {
+					if (xhr.status === 200) {
+						// 上传成功
+						alert('文件上传成功');
+					} else {
+						// 上传失败
+						alert('文件上传失败');
+					}
+				};
+				xhr.send(formData);
+				xhr.onreadystatechange = function() {
+					if (xhr.readyState === 4 && xhr.status === 200) {
+						console.log(xhr.responseText);
+					}
+				}
+				xhr.onerror = function(error) {
+					console.log(error);
+				}
+			});
+		</script>
+		<script>
+			$("#submit").click(function() {
+				var post = $("#name").val();
+				var duty = $("#job").val();
+				var requirement = $("#requirement").val();
+				var data = {
+						"duty": duty,
+						"id": 0,
+						"post": post,
+						"requirement": requirement
+				};
+				console.log(data);
+				$.ajax({
+					url: "/api/post/add",
+					type: "POST",
+					async: false,
+					data: JSON.stringify(data),
+					dataType: "json",
+					contentType: "application/json",
+					success: function(response) {
+						console.log(response);
+						if (response['flag'] == true) {
+							alert('上传成功！');
+							window.location.href = "{{ url_for('chief') }}";
+						} else{
+							alert('上传失败！');
+							}
+					},
+					error: function(error) {
+						console.log(error);
+						alert("表单提交失败！");
+					}
+				});
+			});
+		</script>
+		<script>
+			window.onload = function() {
+				var data = {
+					"current": 0,
+					"endTime": "",
+					"isDelete": 0,
+					"isReview": 0,
+					"keywords": "",
+					"size": 0,
+					"startTime": "",
+					"status": 0,
+					"type": 0
+				};
+				$(document).ready(function() {
+					var dataList = [];
+					$.ajax({
+						url: "/api/user/posts",
+						type: "POST",
+						data: JSON.stringify(data),
+						dataType: "json",
+						contentType: "application/json;charset=utf-8",
+						success: function(response) {
+							console.log(response);
+							if (response['flag'] == true) {
+								recordList = response['data']['recordList'];
+								count = response['data']['count'];
+
+								// 获取容器元素
+								var container = document.querySelector("#row");
+
+								// 清空容器元素的内容
+								container.innerHTML = "";
+								function createWatchHandler(postId) {
+								  return function(event) {
+									event.preventDefault(); // 阻止链接的默认行为
+										console.log(postId);
+										var url = "/api/post/" + postId;
+										wrap.empty();
+										$.ajax({
+											url: url,
+											type: "GET",
+											dataType: "json",
+											contentType: "application/json;charset=utf-8",
+											success: function(response) {
+												console.log(response);
+												if (response['flag'] == true) {
+													post = response['data']['post'];
+													if (post === null|| post === "") {
+														post = "暂无";
+													}
+													duty = response['data']['duty'];
+													if (duty === null||duty === "") {
+														duty = "暂无";
+													}
+													requirement = response['data']['requirement'];
+													if (requirement === null||requirement === "") {
+														requirement = "暂无";
+													}
+													var Item1 = $("<h3>").text("名称：" + post);
+													var Item2 = $("<h3>").text("职责：" + duty);
+													var Item3 = $("<h3>").text("要求：" + requirement);
+													wrap.addClass("wrap");
+													wrap.append(Item1);
+													wrap.append(Item2);
+													wrap.append(Item3);
+												}
+											}
+										})
+								  }
+								}
+								function createDeleteHandler(postId) {
+								  return function(event) {
+									event.preventDefault(); // 阻止链接的默认行为
+										var postId = record.id;
+										var url = "/api/post/delete/" + postId;
+										$.ajax({
+											url: url,
+											type: "GET",
+											dataType: "json",
+											contentType: "application/json;charset=utf-8",
+											success: function(response) {
+												console.log(response);
+												if (response['flag'] == true) {
+													alert(response['message']);
+													window.location.href = "{{ url_for('chief') }}";
+												}
+											}
+										})
+								  }
+								}
+
+								for (var i = 0; i < count; i++) {
+									var record = recordList[i];
+									var postId = record.id;
+									console.log(postId);
+									// 创建 HTML 元素
+									var colElement = document.createElement("div");
+									colElement.classList.add("col-lg-6");
+
+									var aboutIconBoxElement = document.createElement("div");
+									aboutIconBoxElement.classList.add("box");
+
+									var aboutIconElement = document.createElement("div");
+									aboutIconElement.classList.add("about-icon");
+
+									var iconElement = document.createElement("i");
+									iconElement.classList.add("fas", "fa-wrench");
+
+									var aboutTitleElement = document.createElement("div");
+									aboutTitleElement.classList.add("about-title");
+
+									var postElement = document.createElement("h3");
+									postElement.textContent = record.post;
+
+									//<div class="section-button">
+									//	<a href="" id="watch">查看</a>
+									//	<a href="" id="del">删除</a>
+									//</div>
+									var containElement = document.createElement("div");
+									containElement.classList.add("section-button");
+									var wrap = $("#wrap");
+									var watchLink = document.createElement("a");
+									watchLink.href = ""; // 在 href 属性中添加目标链接
+									watchLink.className = "watch";
+									watchLink.textContent = "查看";
+
+									// 创建删除链接元素
+									var deleteLink = document.createElement("a");
+									deleteLink.href = ""; // 在 href 属性中添加目标链接
+									deleteLink.className = "del";
+									deleteLink.textContent = "删除";
+
+									// 添加点击事件处理程序
+									watchLink.addEventListener("click", createWatchHandler(postId));
+
+									deleteLink.addEventListener("click", createDeleteHandler(postId));
+									containElement.appendChild(watchLink);
+									containElement.appendChild(deleteLink);
+									// 组合元素
+									aboutIconElement.appendChild(iconElement);
+									aboutTitleElement.appendChild(postElement);
+									aboutIconBoxElement.appendChild(aboutIconElement);
+									aboutIconBoxElement.appendChild(aboutTitleElement);
+									aboutIconBoxElement.appendChild(containElement);
+									colElement.appendChild(aboutIconBoxElement);
+
+									// 将元素添加到容器中
+									container.appendChild(colElement);
+								}
+								console.log(recordList);
+							} else
+								alert(response['message']);
+						}
+					})
+				})
+			}
+		</script>
+	</body>
+
+</html>

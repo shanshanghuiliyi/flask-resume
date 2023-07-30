@@ -1,0 +1,521 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Index</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Favicon -->
+
+		<!-- bootstrap CSS -->
+		<link rel="stylesheet" href="../static/css/bootstrap.min.css" type="text/css" media="all">
+		<!-- carousel CSS -->
+		<link rel="stylesheet" href="../static/css/owl.carousel.min.css" type="text/css" media="all">
+		<!-- animate CSS -->
+		<link rel="stylesheet" href="../static/css/animate.css" type="text/css" media="all">
+		<!-- animated-text CSS -->
+		<link rel="stylesheet" href="../static/css/animated-text.css" type="text/css" media="all">
+		<!-- font-awesome CSS -->
+		<link rel="stylesheet" href="../static/css/all.min.css" type="text/css" media="all">
+		<!-- font-flaticon CSS -->
+		<link rel="stylesheet" href="../static/css/flaticon.css" type="text/css" media="all">
+		<!-- theme-default CSS -->
+		<link rel="stylesheet" href="../static/css/theme-default.css" type="text/css" media="all">
+		<!-- meanmenu CSS -->
+		<link rel="stylesheet" href="../static/css/meanmenu.min.css" type="text/css" media="all">
+		<!-- transitions CSS -->
+		<link rel="stylesheet" href="../static/css/owl.transitions.css" type="text/css" media="all">
+		<!-- venobox CSS -->
+		<link rel="stylesheet" href="../static/css/venobox.css" type="text/css" media="all">
+		<!-- bootstrap icons -->
+		<link rel="stylesheet" href="../static/css/bootstrap-icons.css" type="text/css" media="all">
+		<!-- Main Style CSS -->
+		<link rel="stylesheet" href="../static/css/style.css" type="text/css" media="all">
+		<!-- responsive CSS -->
+		<link rel="stylesheet" href="../static/css/responsive.css" type="text/css" media="all">
+		<!-- modernizr js -->
+		<script src="../static/js/modernizr-3.5.0.min.js"></script>
+	</head>
+
+	<body>
+		<!-- loder -->
+		<div class="loader-wrapper">
+			<div class="loader"></div>
+			<div class="loder-section left-section"></div>
+			<div class="loder-section right-section"></div>
+		</div>
+
+		<div class="header-area header_bg" id="sticky-header">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-md-3">
+						<!--logo-->
+						<div class="logo">
+							<a href=""><img src="../static/picture/logo1.png" alt="logo img"></a>
+						</div>
+					</div>
+					<div class="col-md-9">
+						<!--header-menu-->
+						<div class="header-menu">
+							<ul>
+								<li><a href="#">主页</a></li>
+								<li><a href="#">人才画像</a>
+									<ul class="sub-menu">
+										<li><a href="{{ url_for('picture') }}">了解人才画像</a></li>
+										<li><a href="{{ url_for('picture_detail') }}">人才画像服务</a></li>
+									</ul>
+								</li>
+								<li><a href="{{ url_for('client') }}">简历解析</a></li>
+						<li><a href="{{ url_for('fit') }}">人岗匹配</a></li>
+						<li><a href="{{ url_for('chief') }}">企业入口</a></li>
+							</ul>
+							<div class="header-menu-button">
+								<a href="{{ url_for('login') }}">注册/登录<i class="bi bi-arrow-right"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="mobile-menu-area sticky d-sm-block d-md-block d-lg-none ">
+			<div class="mobile-menu">
+				<nav class="header-menu">
+					<ul class="nav_scroll">
+						<li><a href="#">主页</a></li>
+						<li><a href="#">人才画像</a>
+							<ul class="sub-menu">
+								<li><a href="{{ url_for('picture') }}">了解人才画像</a></li>
+								<li><a href="{{ url_for('picture_detail') }}">人才画像服务</a></li>
+							</ul>
+						</li>
+						<li><a href="{{ url_for('client') }}">简历解析</a></li>
+						<li><a href="{{ url_for('fit') }}">人岗匹配</a></li>
+						<li><a href="{{ url_for('chief') }}">企业入口</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+
+		<div class="hero-area d-flex align-items-center">
+			<div class="container">
+				<div class="row d-flex align-items-center">
+					<div class="col-lg-6 col-md-6">
+						<!--hero-content-->
+						<div class="hero-content">
+							<div class="hero-sub-title">
+								<!--								<h5>BEST LIFE COACH</h5>-->
+							</div>
+							<div class="hero-main-title">
+								<h1>名企精英都在用的专业简历</h1>
+								<!--								<h1>Life Coach Fast</h1>-->
+							</div>
+							<!--hero-description-->
+							<div class="hero-description">
+								<p>30 分钟快速制作一份完美简历，帮助 500 万人才直通面试</p>
+							</div>
+							<!--hero-button-->
+							<div class="hero-button">
+								<a href="{{ url_for('before') }}">免费生成专业简历<i class="bi bi-arrow-right"></i></a>
+							</div>
+							<div class="hero-video-button">
+								<a class="video-vemo-icon venobox vbox-item" data-vbtype="youtube" data-autoplay="true"
+									href="#"> <i class="fas fa-play"></i></a>
+								<span>观看视频</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6">
+						<div class="hero-thumb">
+							<img src="../static/picture/hero-thumb.png" alt="hero img">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="plan-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<!--section title-->
+						<div class="section-title text-center">
+							<div class="section-sub-title">
+								<h4>最懂你</h4>
+							</div>
+							<div class="section-main-title">
+								<h1>优秀简历，一秒吸引HR</h1>
+								<h1>简历该长什么样，看简历的人最知道</h1>
+							</div>
+							<div class="section-description">
+								<p>五百丁4年来已为上万名求职者提供简历服务，每一份简历都量身定制，客户满意度高达99%。
+
+									各行业资深HR任你挑选，一对一沟通百分百定制，带你分析目标岗位相关性，深入挖掘个人能力，在充分了解你的情况后扬长避短，用简历语言为你书写一份高质量的「HR最喜欢的简历」，求职通过率提升80%！
+								</p>
+							</div>
+							<div class="section-button">
+								<a class="active1" href="#">了解更多关于我们<i class="bi bi-arrow-right"></i></a>
+								<!--								<a href="#">About Me<i class="bi bi-arrow-right"></i></a>-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="plan-area-two d-flex align-items-center ">
+			<div class="container">
+				<div class="row ">
+					<div class="col-lg-12">
+						<div class="plan-video-icon">
+							<a class="video-vemo-icon venobox vbox-item" data-vbtype="youtube" data-autoplay="true"
+								href="#"> <i class="fas fa-play"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="serivce-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<!--section title-->
+						<div class="section-title text-center">
+							<div class="section-sub-title">
+								<h4>最专业</h4>
+							</div>
+							<div class="section-main-title">
+								<h1>由资深的HR专家提供</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-6">
+						<!--service single box-->
+						<div class="service-single-box">
+							<div class="service-icon">
+								<img src="../static/picture/service1.png" alt="icon">
+							</div>
+							<!--service box content-->
+							<div class="service-box-content">
+								<div class="service-title">
+									<h2>专业模板</h2>
+									<h3>由人力资源专家</h3>
+									<h3>设计并推荐</h3>
+								</div>
+								<div class="service-description">
+									<p>涵盖 15+ 大行业，300+ 岗位，5000+ 简历模板，1,600,000+ 字简历范文，满足全方位简历需求。</p>
+
+									<p>所有模板均由专业 HR 挑选，确保格式、排版、措辞符合行业规范，简历通过率更有保障。</p>
+								</div>
+								<!--service btn-->
+								<div class="service-btn">
+									<a href="#">了解更多<i class="bi bi-arrow-right"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6">
+						<!--service single box-->
+						<div class="service-single-box">
+							<div class="service-icon">
+								<img src="../static/picture/service2.png" alt="icon">
+							</div>
+							<!--service box content-->
+							<div class="service-box-content">
+								<div class="service-title">
+									<h2>智能优化</h2>
+									<h3>零错误的专业简历</h3>
+									<h3>更能在竞争者中脱颖而出</h3>
+								</div>
+								<div class="service-description">
+									<p>根据多维度评估简历综合竞争力，并且提供精准优化建议，帮你清晰定位，扬长补短。</p>
+
+									<p>智能纠错 20 大简历常见问题，从 HR 角度审查简历常见错误，预先发现问题，避免踩坑。</p>
+								</div>
+								<!--service btn-->
+								<div class="service-btn">
+									<a href="#">了解更多<i class="bi bi-arrow-right"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6">
+						<!--service single box-->
+						<div class="service-single-box">
+							<div class="service-icon">
+								<img src="../static/picture/service3.png" alt="icon">
+							</div>
+							<!--service box content-->
+							<div class="service-box-content">
+								<div class="service-title">
+									<h2>职位匹配</h2>
+									<h3>AI 算法匹配简历和职位</h3>
+									<h3>大幅提高求职效率</h3>
+								</div>
+								<div class="service-description">
+									<p>根据技能、专业、相关经验等多维度算法解析简历核心标签，自动匹配合适职位。</p>
+
+									<p>节省筛选职位工作量，挖掘未发觉的新机会，提高简历通过率，快速拿到心动的Offer。</p>
+								</div>
+								<!--service btn-->
+								<div class="service-btn">
+									<a href="#">了解更多<i class="bi bi-arrow-right"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="testimoial-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<!--section title-->
+						<div class="section-title text-center">
+							<div class="section-sub-title">
+								<h4>最好评</h4>
+							</div>
+							<div class="section-main-title">
+								<h1>听一听，用户们的反馈</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="testimonial_list owl-carousel">
+						<div class="col-lg-12">
+							<!--testimonial single box-->
+							<div class="testimonial-single-box">
+								<div class="testimonial-thumb">
+									<img src="../static/picture/testi1.png" alt="testi img">
+									<!--testi icon -->
+									<div class="testi-icon">
+										<img src="../static/picture/testi-icon.png" alt="testi icon">
+									</div>
+								</div>
+								<!--testimonial content -->
+								<div class="testimonial-content">
+									<div class="testi-title">
+										<h3>黄涛 Cydia</h3>
+									</div>
+									<div class="testi-description">
+										<p>通过WonderCV制作的简历让我拿到了第一个Offer，真的非常感谢！我之前是拿同学的简历模板，也曾在网上下载所谓的“漂亮模版”，在排版修改上反而又花了很多时间，而且不好意思的说，因为照搬模板给的经历更是给自己求职路上埋坑。
+											用了超级简历我才知道怎么去总结和描写自己的经历，专业高级就更不用说了，完全不用在排版上再纠结真的是很感动，作为超级简历的铁杆粉，真诚的推荐给将要迈入职场的各位同学！
+										</p>
+									</div>
+								</div>
+								<!--testo shape icon -->
+								<div class="testi-shape-icon">
+									<img src="../static/picture/testi-shape.png" alt="shape icon">
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-12">
+							<!--testimonial single box-->
+							<div class="testimonial-single-box">
+								<div class="testimonial-thumb">
+									<img src="../static/picture/testi2.png" alt="testi img">
+									<!--testi icon -->
+									<div class="testi-icon">
+										<img src="../static/picture/testi-icon.png" alt="testi icon">
+									</div>
+								</div>
+								<!--testimonial content -->
+								<div class="testimonial-content">
+									<div class="testi-title">
+										<h3>刘萌萌</h3>
+									</div>
+									<div class="testi-description">
+										<p>作为一个专业猎头，我看的职位是比较高级的，但是拿到的简历也是五花八门各种样子的都有。为了能够更好的把他们展示给雇主单位，很多简历我都会和候选人详聊之后重新制作。
+											一般我都是用国外的编辑器和Word按照我做好的习惯模板去制作，直到发现超级简历，比用自己做好的模板还要方便快捷，确实是我用过最好用的编辑器，希望超级简历能够开发能让我们更好管理简历的功能就更好了。
+										</p>
+									</div>
+								</div>
+								<!--testo shape icon -->
+								<div class="testi-shape-icon">
+									<img src="../static/picture/testi-shape.png" alt="shape icon">
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-12">
+							<!--testimonial single box-->
+							<div class="testimonial-single-box">
+								<div class="testimonial-thumb">
+									<img src="../static/picture/testi3.png" alt="testi img">
+									<!--testi icon -->
+									<div class="testi-icon">
+										<img src="../static/picture/testi-icon.png" alt="testi icon">
+									</div>
+								</div>
+								<!--testimonial content -->
+								<div class="testimonial-content">
+									<div class="testi-title">
+										<h3>张晓涵</h3>
+									</div>
+									<div class="testi-description">
+										<p>我每年会看上千份简历，好的简历基本上一眼就能看出来。大多数求职者即便失败了也不会意识到，从简历的样式和逻辑他就已经被刷下去了。说实话，10秒内看不到重点的简历就会让我很烦躁，尤其是一些各种图表、文字没有内容、简历过长等等信息展示不清楚的简历都不会再看第二眼。超级简历生成的简历非常清晰专业，让人眼前一亮，我希望我收到的每份简历都能是这个样子。
+										</p>
+									</div>
+								</div>
+								<!--testo shape icon -->
+								<div class="testi-shape-icon">
+									<img src="../static/picture/testi-shape.png" alt="shape icon">
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-12">
+							<!--testimonial single box-->
+							<div class="testimonial-single-box">
+								<div class="testimonial-thumb">
+									<img src="../static/picture/testi2.png" alt="testi img">
+									<!--testi icon -->
+									<div class="testi-icon">
+										<img src="../static/picture/testi-icon.png" alt="testi icon">
+									</div>
+								</div>
+								<!--testimonial content -->
+								<div class="testimonial-content">
+									<div class="testi-title">
+										<h3>李守凯</h3>
+									</div>
+									<div class="testi-description">
+										<p>真的很喜欢超级简历这个产品，我的简历都是用超级简历做出来的，很方便，而且做出来特别漂亮和高大上。
+											正好借这个机会，向贵团队致谢，感谢你们开发出这款产品，给我们求职狗帮了很大的忙！我也把这个产品推荐给了身边几个朋友，不过都是好朋友，关系不好的不舍的推荐…不要怪我，这款产品真的好，再次致谢！
+										</p>
+									</div>
+								</div>
+								<!--testo shape icon -->
+								<div class="testi-shape-icon">
+									<img src="../static/picture/testi-shape.png" alt="shape icon">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="chosse-us-area d-flex align-items-center">
+			<div class="container-fluid">
+				<div class="row d-flex align-items-center">
+					<div class="col-lg-6">
+
+					</div>
+					<div class="col-lg-6">
+						<div class="choose-us-right">
+							<!--section title-->
+							<div class="section-title">
+								<div class="section-sub-title">
+									<h4>智臻简历</h4>
+								</div>
+								<div class="section-main-title">
+									<h1>你为什么需要一份好的简历</h1>
+								</div>
+								<div class="section-description">
+									<p>企业 hr 每天查看上千份各式各样的简历</p>
+
+									<p>平均每份简历查看 6 秒钟</p>
+
+									<p>只有一份规范、专业的简历，才能引起 hr 注意</p>
+
+									<p>超级简历已帮 12,863 位候选人优化简历，通过率提高 90%</p>
+								</div>
+							</div>
+							<div class="choose-us-btn">
+								<a href="#">联系我们<i class="bi bi-arrow-right"></i></a>
+							</div>
+							<div class="choose-singthur">
+								<img src="../static/picture/choose-sing.png" alt="choose img">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="subscribe-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="subscribe-content text-center">
+							<div class="subscribe-title">
+								<h1>在这里，轻松创建一份出色的简历</h1>
+							</div>
+							<div class="subscribe-description">
+								<p>超过千万优秀人才的共同选择</p>
+							</div>
+							<div class="section-button">
+								<a class="active1" href="{{ url_for('jianli') }}">开始制作简历<i
+										class="bi bi-arrow-right"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="scroll-area">
+			<div class="top-wrap">
+				<div class="go-top-btn-wraper">
+					<div class="go-top go-top-button">
+						<i class="bi bi-chevron-double-up"></i>
+						<i class="bi bi-chevron-double-up"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- jquery js -->
+		<script src="../static/js/jquery-3.6.2.min.js"></script>
+		<script src="../static/js/popper.min.js"></script>
+		<!-- bootstrap js -->
+		<script src="../static/js/bootstrap.min.js"></script>
+		<!-- carousel js -->
+		<script src="../static/js/owl.carousel.min.js"></script>
+		<!-- counterup js -->
+		<script src="../static/js/jquery.counterup.min.js"></script>
+		<!-- waypoints js -->
+		<script src="../static/js/waypoints.min.js"></script>
+		<!-- wow js -->
+		<script src="../static/js/wow.js"></script>
+		<!-- imagesloaded js -->
+		<script src="../static/js/imagesloaded.pkgd.min.js"></script>
+		<!-- venobox js -->
+		<script src="../static/js/venobox.js"></script>
+		<!--  animated-text js -->
+		<script src="../static/js/animated-text.js"></script>
+		<!-- venobox min js -->
+		<script src="../static/js/venobox.min.js"></script>
+		<!-- isotope js -->
+		<script src="../static/js/isotope.pkgd.min.js"></script>
+		<!-- jquery meanmenu js -->
+		<script src="../static/js/jquery.meanmenu.js"></script>
+		<!-- jquery scrollup js -->
+		<script src="../static/js/jquery.scrollUp.js"></script>
+		<script src="../static/js/jquery.barfiller.js"></script>
+		<!-- jquery js -->
+		<!-- theme js -->
+		<script src="../static/js/theme.js"></script>
+		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				$.ajax({
+					url: "/api/report",
+					type: "POST",
+					dataType: "json",
+					success: function(data) {
+						console.log(data)
+					}
+				})
+			})
+		</script>
+	</body>
+
+</html>

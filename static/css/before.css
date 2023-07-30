@@ -1,0 +1,32 @@
+.button {
+    width: 180px;
+    height: 50px;
+    border-radius: 25px;
+    margin-top: 50px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1.15px;
+    background-color: #4B70E2;
+    color: #f9f9f9;
+    box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #f9f9f9;
+    border: none;
+    outline: none;
+}
+.switch_button {
+    cursor: pointer;
+}
+
+.switch_button:hover,
+< !-- .submit:hover {
+    -->< !-- box-shadow: 6px 6px 10px #d1d9e6, -6px -6px 10px #f9f9f9;
+    -->< !-- transform: scale(0.985);
+    -->< !-- transition: 0.25s;
+    -->< !--
+}
+
+-->.switch_button:active,
+.switch_button:focus {
+    box-shadow: 2px 2px 6px #d1d9e6, -2px -2px 6px #f9f9f9;
+    transform: scale(0.97);
+    transition: 0.25s;
+}

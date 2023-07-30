@@ -1,0 +1,521 @@
+<!--<link rel="stylesheet" type="text/css" href="../static/css/jianli.css">-->
+<body>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>个人简历
+	</title>
+	<link
+		href="https://template-1253409072.cos.ap-guangzhou.myqcloud.com/resume/right-resume/css/font-awesome/css/all.min.css?ver=1.2.0"
+		rel="stylesheet" />
+	<link
+		href="https://template-1253409072.cos.ap-guangzhou.myqcloud.com/resume/right-resume/css/bootstrap.min.css?ver=1.2.0"
+		rel="stylesheet" />
+	<link href="https://template-1253409072.cos.ap-guangzhou.myqcloud.com/resume/right-resume/css/aos.css?ver=1.2.0"
+		rel="stylesheet" />
+	<link href="https://template-1253409072.cos.ap-guangzhou.myqcloud.com/resume/right-resume/css/main.css?ver=1.2.0"
+		rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="../static/css/jianli.css">
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<div id="conta">
+		<header class="d-print-none">
+			<div class="container text-center text-lg-left">
+				<div class="py-3 clearfix">
+					<h1 class="site-title mb-0">{{ name }}
+					</h1>
+					<h1 class="site-title mb-0">个人简历
+					</h1>
+				</div>
+			</div>
+		</header>
+		<div class="page-content">
+			<div class="container">
+				<div class="cover shadow-lg bg-white">
+					<div class="cover-bg p-3 p-lg-4 text-white">
+						<div class="row">
+							<div class="col-lg-4 col-md-5">
+								<div class="avatar hover-effect bg-white shadow-sm p-1">
+									<img id="image"
+										src="https://template-1253409072.cos.ap-guangzhou.myqcloud.com/resume/right-resume/images/avatar.jpg"
+										width="200" height="200" onclick="imgclick()" />
+									<input id="file" type="file" name="file" class="file" value=""
+										style="display: none">
+								</div>
+							</div>
+							<div class="col-lg-8 col-md-7 text-center text-md-start">
+								<h2 data-aos="fade-left" data-aos-delay="0" class="h1 mt-2">{{ name }}
+								</h2>
+								<h3 class="h6">意向职位</h3>
+								<p data-aos="fade-left" data-aos-delay="100">{{ job }}
+								</p>
+								<div data-aos="fade-left" data-aos-delay="200" class="d-print-none">
+									<a href="#" target="_blank"
+										class="btn btn-light text-dark shadow-sm mt-1 me-1" onclick="window.print()">打印简历</a>
+									<a href="#" class="btn btn-success shadow-sm mt-1"onclick="window.storge()">保存简历</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="about-section pt-4 px-3 px-lg-4 mt-1">
+						<div class="row">
+							<div class="col-md-6">
+								<h2 class="h3 mb-3">个人简介
+								</h2>
+								<textarea name="jie" rows="4" placeholder="小透明" required class="form-control c11141"
+									id="jie"></textarea>
+								<div class="col-sm-4">
+									<div class="pb-1">性别
+									</div>
+								</div>
+								<div class="col-sm-8">
+									<div class="pb-1 text-secondary"><input list="genders" name="gender" id="gender">
+										<datalist id="genders">
+											<option value="男">
+											<option value="女">
+										</datalist>
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="pb-1">出生年月日
+									</div>
+								</div>
+								<div class="col-sm-8">
+									<div class="pb-1 text-secondary"><input type="date" name="birthtime" id="birthtime">
+									</div>
+									<div class="col-sm-4">
+										<div class="pb-1">籍贯
+										</div>
+									</div>
+									<div class="col-sm-8">
+										<div class="pb-1 text-secondary"><input type="text" name="birthplace"
+												id="birthplace">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 offset-md">
+								<div class="col mt-8">
+									<div class="col-sm-4">
+										<div class="pb-1">政治面貌
+										</div>
+									</div>
+									<div class="col-sm-8">
+										<div class="pb-1 text-secondary"><input type="text" name="politicial"
+												id="politicial">
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="pb-1">电子邮箱
+										</div>
+									</div>
+									<div class="col-sm-8">
+										<div class="pb-1 text-secondary"><input type="email" v-model="email"
+												name="email" id="email" />
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="pb-1">手机
+										</div>
+									</div>
+									<div class="col-sm-8">
+										<div class="pb-1 text-secondary"><input type="tel" v-model="phone" name="phone"
+												id="phone" />
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="pb-1">地址
+										</div>
+									</div>
+									<div class="col-sm-8">
+										<div class="pb-1 text-secondary"><input type="text" v-model="address"
+												name="address" id="address" />
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="pb-1">最高学历
+										</div>
+									</div>
+									<div class="col-sm-8">
+										<div class="pb-1 text-secondary"><input list="educations" name="education"
+												id="education">
+											<datalist id="educations">
+												<option value="无">
+												<option value="小学">
+												<option value="初中">
+												<option value="高中">
+												<option value="中专">
+												<option value="大专">
+												<option value="本科">
+												<option value="硕士">
+												<option value="博士">
+											</datalist>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<hr class="d-print-none" />
+					<div class="skills-section px-3 px-lg-4">
+						<h2 class="h3 mb-3">专业技能
+						</h2>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="mb-2">
+									<span><input type="text" placeholder="HTML" name="hobby1" id="hobby1" /></span>
+									<input type="range" min="0" max="100" step="1" value="50" class="slider"
+										name="range1" id="range1">
+								</div>
+								<div class="mb-2">
+									<span><input type="text" placeholder="CSS" name="hobby2" id="hobby2" /></span>
+									<input type="range" min="0" max="100" step="1" value="50" class="slider"
+										name="range2" id="range2">
+								</div>
+								<div class="mb-2">
+									<span><input type="text" placeholder="JavaScript" name="hobby3"
+											id="hobby3" /></span>
+									<input type="range" min="0" max="100" step="1" value="50" class="slider"
+										name="range3" id="range3">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="mb-2">
+									<span><input type="text" placeholder="Adobe Photoshop" name="hobby4"
+											id="hobby4" /></span>
+									<input type="range" min="0" max="100" step="1" value="50" class="slider"
+										name="range4" id="range4">
+								</div>
+								<div class="mb-2">
+									<span><input type="text" placeholder="Sketch" name="hobby5" id="hobby5" /></span>
+									<input type="range" min="0" max="100" step="1" value="50" class="slider"
+										name="range5" id="range5">
+								</div>
+								<div class="mb-2">
+									<span><input type="text" placeholder="Adobe XD" name="hobby6" id="hobby6" /></span>
+									<input type="range" min="0" max="100" step="1" value="50" class="slider"
+										name="range6" id="range6">
+								</div>
+							</div>
+						</div>
+					</div>
+					<hr class="d-print-none" />
+					<div class="work-experience-section px-3 px-lg-4">
+						<h2 class="h3 mb-4">工作经验
+						</h2>
+						<div class="timeline" id="timeline1">
+							<div class="timeline-card timeline-card-primary card shadow-sm">
+								<div class="card-body">
+									<div class="h5 mb-1"><input type="text" placeholder="平面设计师" maxlength="5"
+											name="job1" id="job1" />
+										<span class="text-muted h6"><input type="text" placeholder="研发中心" name="place1"
+												id="place1" /></span>
+									</div>
+									<div class="text-muted text-small mb-2"><input type="month" name="time1"
+											id="time1" /> - <input type="month" name="time2" id="time2" />
+									</div>
+									<textarea name="message" rows="4"
+										placeholder="主要负责与市场沟通，页面制作分为pc端和移动端，和后台php工程师合作。开发职能：pc端主要用html/html5编写页面，利用javascript/jquery制作动态页面，主要功能有登录、注册、游戏列表、游戏充值等功能。"
+										class="form-control c11141" id="dect1"></textarea>
+								</div>
+							</div>
+						</div>
+						<button class="btn btn-light text-dark shadow-sm mt-1 me-1" onclick="add1()">添加</button>
+						<hr class="d-print-none" />
+						<div class="page-break">
+						</div>
+						<div class="education-section px-3 px-lg-4 pb-4">
+							<h2 class="h3 mb-4">教育背景
+							</h2>
+							<div class="timeline" id="timeline2">
+								<div class="timeline-card timeline-card-success card shadow-sm">
+									<div class="card-body">
+										<div class="h5 mb-1">
+											<input type="text" placeholder="计算机科学与技术" name="zhuan1" id="zhuan1" /> |
+											<input list="highedus" name="highedu" id="highedu1">
+											<datalist id="highedus">
+												<option value="本科">
+												<option value="硕士">
+												<option value="博士">
+											</datalist>
+											<span class="text-muted h6"><input type="text" placeholder="厦门大学"
+													name="college1" id="college1" /></span>
+										</div>
+										<div class="text-muted text-small mb-2"><input type="number" min="1900"
+												max="2099" step="1" placeholder="输入年份" name="dur1" id="dur1"> -
+											<input type="number" min="1900" max="2099" step="1" placeholder="输入年份"
+												name="dur2" id="dur2">
+										</div>
+										<div>
+											<textarea name="message" rows="4"
+												placeholder="计算机组成原理，信息系统开发项目管理技术，计算机网络技术，数据结构，计算机原理课程设计，计算方法，数据库原理，微机原理与汇编语言，软件工程，操作系统，单片机应用，信息系统分析与设计，人工智能导论，多媒体应用技术，高级程序语言设计，计算机系统结构，java语言程序设计，c++程序设计，计算机图形学，编译原理，语音与图象处理，计算机专业英语，电路基础，模拟电子技术，数字逻辑与数字系统等。"
+												class="form-control c11141" id="ye1"></textarea>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<button class="btn btn-light text-dark shadow-sm mt-1 me-1" onclick="add2()">添加</button>
+						<hr class="d-print-none" />
+						<div class="work-experience-section px-3 px-lg-4">
+							<h2 class="h3 mb-4">项目经验
+							</h2>
+							<div class="timeline" id="timeline3">
+								<div class="timeline-card timeline-card-primary card shadow-sm">
+									<div class="card-body">
+										<div class="h5 mb-1"><input type="text" placeholder="项目名称" name="proname1"
+												id="proname1" />
+											<span class="text-muted h6"><input type="text" placeholder="项目职责"
+													name="produty1" id="produty1" /></span>
+										</div>
+										<div class="text-muted text-small mb-2"><input type="month" name="start1"
+												id="start1" /> - <input type="month" name="start2" id="start2" />
+										</div>
+										<textarea name="message" rows="4" placeholder="项目内容" class="form-control c11141"
+											id="content1"></textarea>
+									</div>
+								</div>
+							</div>
+							<button class="btn btn-light text-dark shadow-sm mt-1 me-1" onclick="add3()">添加</button>
+							<hr class="d-print-none" />
+							<div id="contact" class="contant-section px-3 px-lg-4 pb-4">
+								<h2 class="h3 text mb-3">联系我
+								</h2>
+								<div class="row">
+									<div class="col-md-7 d-print-none">
+										<div class="my-2">
+											<form action="https://htmlpage.cn/your@email.com" method="POST">
+												<div class="row">
+													<div class="col-6">
+														<input type="text" id="name" name="name" placeholder="姓名"
+															required class="form-control" />
+													</div>
+													<div class="col-6">
+														<input type="email" id="mail" name="_replyto"
+															placeholder="E-mail" required class="form-control" />
+													</div>
+												</div>
+												<div class="form-group my-2">
+													<textarea id="message" name="message" rows="4" placeholder="留言"
+														required class="form-control c11141"></textarea>
+												</div>
+												<button type="submit" class="btn btn-primary mt-2">发送</button>
+											</form>
+										</div>
+									</div>
+									<div class="col">
+										<div class="mt-2">
+											<h3 class="h6">地址
+											</h3>
+											<div class="pb-2 text-secondary">{{ address }}
+											</div>
+											<h3 class="h6">手机
+											</h3>
+											<div class="pb-2 text-secondary">{{ phone }}
+											</div>
+											<h3 class="h6">电子邮箱
+											</h3>
+											<div class="pb-2 text-secondary">{{ email }}
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<footer class="pt-4 pb-4 text-muted text-center d-print-none">
+					<div class="container">
+						<div class="my-3">
+							<div class="h4">{{ name }}</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+	</div>
+	<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/aos/2.3.4/aos.js"></script>
+	<script src="../static/js/jianli.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		new Vue({
+			el: "#conta",
+			data: {
+				name: "",
+				address: "",
+				phone: "",
+				email: ""
+			}
+		})
+	</script>
+	<script>
+		var flag1 = 1
+		add1 = function() {
+			flag1 += 1;
+			var num1 = 2 * flag1 - 1;
+			var num2 = 2 * flag1;
+			console.log(flag1);
+			var myDiv = document.getElementById("timeline1");
+			const text1 = `<div class="timeline-card timeline-card-primary card shadow-sm">
+								<div class="card-body">
+									<div class="h5 mb-1"><input type="text" placeholder="平面设计师" maxlength="5" name="job${flag1}" id="job${flag1}"/>
+										<span class="text-muted h6"><input type="text" placeholder="研发中心" name="place${flag1}" id="place${flag1}"/></span>
+									</div>
+									<div class="text-muted text-small mb-2"><input type="month" name="time${num1}"
+											id="time${num1}" /> - <input type="month" name="time${num2}" id="time${num2}" />
+									</div>
+									<textarea name="message" rows="4" placeholder="主要负责与市场沟通，页面制作分为pc端和移动端，和后台php工程师合作。开发职能：pc端主要用html/html5编写页面，利用javascript/jquery制作动态页面，主要功能有登录、注册、游戏列表、游戏充值等功能。"
+										class="form-control c11141" id="dect${flag1}"></textarea>
+								</div>
+							</div>`;
+			myDiv.insertAdjacentHTML("beforeend", text1);
+		}
+		var flag2 = 1
+
+		window.add2 = function() {
+			flag2 += 1;
+			var num1 = 2 * flag2 - 1;
+			var num2 = 2 * flag2;
+			console.log(flag2);
+			var myDiv = document.getElementById("timeline2");
+			const text2 = `<div class="timeline-card timeline-card-success card shadow-sm">
+									<div class="card-body">
+										<div class="h5 mb-1">
+											<input type="text" placeholder="计算机科学与技术" name="zhuan${flag2}" id="zhuan${flag2}"/> | <input list="highedus"
+												name="highedu" id="highedu${flag2}">
+											<datalist id="highedus">
+												<option value="本科">
+												<option value="硕士">
+												<option value="博士">
+											</datalist>
+											<span class="text-muted h6"><input type="text" placeholder="厦门大学" name="college${flag2}" id="college${flag2}"/></span>
+										</div>
+										<div class="text-muted text-small mb-2"><input type="number" min="1900"
+												max="2099" step="1" placeholder="输入年份" name="dur${num1}" id="dur${num1}"> - <input
+												type="number" min="1900" max="2099" step="1" placeholder="输入年份"
+												name="dur${num2}" id="dur${num2}">
+										</div>
+										<div>
+											<textarea name="message" rows="4"
+												placeholder="计算机组成原理，信息系统开发项目管理技术，计算机网络技术，数据结构，计算机原理课程设计，计算方法，数据库原理，微机原理与汇编语言，软件工程，操作系统，单片机应用，信息系统分析与设计，人工智能导论，多媒体应用技术，高级程序语言设计，计算机系统结构，java语言程序设计，c++程序设计，计算机图形学，编译原理，语音与图象处理，计算机专业英语，电路基础，模拟电子技术，数字逻辑与数字系统等。"
+												class="form-control c11141" id="ye${flag2}"></textarea>
+										</div>
+									</div>
+								</div>`;
+			myDiv.insertAdjacentHTML("beforeend", text2);;
+		}
+		var flag3 = 1
+
+		window.add3 = function() {
+			flag3 += 1;
+			var num1 = 2 * flag3 - 1;
+			var num2 = 2 * flag3;
+			console.log(flag3);
+			var myDiv = document.getElementById("timeline3");
+			const text3 = `<div class="timeline-card timeline-card-primary card shadow-sm">
+								<div class="card-body">
+									<div class="h5 mb-1"><input type="text" placeholder="项目名称" name="proname${flag3}" id="proname${flag3}"/>
+										<span class="text-muted h6"><input type="text" placeholder="项目职责" name="produty${flag3}" id="produty${flag3}"/></span>
+									</div>
+									<div class="text-muted text-small mb-2"><input type="month" name="start${num1}"
+											id="start${num1}" /> - <input type="month" name="start${num2}" id="atart${num2}" />
+									</div>
+									<textarea name="message" rows="4" placeholder="项目内容"
+										class="form-control c11141" id="content${flag3}"></textarea>
+								</div>
+							</div>`;
+			myDiv.insertAdjacentHTML("beforeend", text3);
+		}
+		var data = {
+			"birthplace": "",
+			"birthtime": "",
+			"email": "",
+			"gender": "",
+			"id": 0,
+			"liveCity": "",
+			"name": "{{ name }}",
+			"phone": "",
+			"political": "",
+			"projectVos": [{
+				"duty": "",
+				"endTime": "",
+				"projectContent": "",
+				"projectName": "",
+				"startTime": ""
+			}],
+			"schoolVOS": [{
+				"degree": "",
+				"description": "",
+				"endTime": "",
+				"major": "",
+				"startTime": "",
+				"university": ""
+			}],
+			"workVOS": [{
+				"company": "",
+				"endTime": "",
+				"job": "",
+				"startTime": "",
+				"work": ""
+			}]
+		};
+		window.storge = function() {
+			data['birthplace'] = document.getElementById("birthplace").value;
+			data['birthtime'] = document.getElementById("birthtime").value;
+			data['political'] = document.getElementById("politicial").value;
+			data['email'] = document.getElementById("email").value;
+			data['phone'] = document.getElementById("phone").value;
+			data['gender'] = document.getElementById("gender").value;
+			data['liveCity'] = document.getElementById("education").value;
+			for (flag1; flag1 >= 1; flag1--) {
+				data['workVOS'][flag1 - 1]['job'] = document.getElementById(`job${flag1}`).value;
+				data['workVOS'][flag1 - 1]['company'] = document.getElementById("place" + String(flag1)).value;
+				data['workVOS'][flag1 - 1]['startTime'] = document.getElementById("time" + String(2 * flag1 - 1)).value;
+				data['workVOS'][flag1 - 1]['endTime'] = document.getElementById("time" + String(2 * flag1)).value;
+				data['workVOS'][flag1 - 1]['work'] = document.getElementById("dect" + String(flag1)).value;
+			}
+			for (flag2; flag2 >= 1; flag2--) {
+				data['schoolVOS'][flag2 - 1]['major'] = document.getElementById("zhuan" + String(flag2)).value;
+				data['schoolVOS'][flag2 - 1]['degree'] = document.getElementById("highedu" + String(flag2)).value;
+				data['schoolVOS'][flag2 - 1]['university'] = document.getElementById("college" + String(flag2)).value;
+				data['schoolVOS'][flag2 - 1]['startTime'] = document.getElementById("dur" + String(2 * flag2 - 1)).value;
+				data['schoolVOS'][flag2 - 1]['endTime'] = document.getElementById("dur" + String(2 * flag2)).value;
+				data['schoolVOS'][flag2 - 1]['description'] = document.getElementById("ye" + String(flag2)).value;
+			}
+			for (flag3; flag3 >= 1; flag3--) {
+				data['projectVos'][flag3 - 1]['projectName'] = document.getElementById("proname" + String(flag3)).value;
+				data['projectVos'][flag3 - 1]['duty'] = document.getElementById("produty" + String(flag3)).value;
+				data['projectVos'][flag3 - 1]['startTime'] = document.getElementById("start" + String(2 * flag3 - 1))
+					.value;
+				data['projectVos'][flag3 - 1]['endTime'] = document.getElementById("start" + String(2 * flag3)).value;
+				data['projectVos'][flag3 - 1]['projectContent'] = document.getElementById("content" + String(flag3))
+				.value;
+			}
+			console.log(data);
+			var send = JSON.stringify(data);
+			console.log(send);
+			$.ajax({
+				url: "/api/resumes/uploadText",
+				type: "POST",
+				async: false,
+				data: send,
+				dataType: 'JSON',
+				contentType: "application/json;charset=utf-8",
+				success: function(response) {
+					console.log(response);
+					alert("简历提交成功！");
+					if (response['flag'] == true) {
+						window.location.href = "{{ url_for('after') }}";
+						alert('上传成功！');
+					} else {
+						alert('上传失败！');
+					}
+				},
+				error: function(error) {
+					console.log(error);
+					alert("简历提交失败！");
+				}
+			})
+		}
+	</script>
+</body>

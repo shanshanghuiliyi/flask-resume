@@ -1,0 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+[data-aos]{
+  opacity:1 !important;
+  transform:translate(0px) scale(1) !important;
+}

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>求职端</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Favicon -->
+
+		<!-- bootstrap CSS -->
+		<link rel="stylesheet" href="../static/css/bootstrap.min.css" type="text/css" media="all">
+		<!-- carousel CSS -->
+		<link rel="stylesheet" href="../static/css/owl.carousel.min.css" type="text/css" media="all">
+		<!-- animate CSS -->
+		<link rel="stylesheet" href="../static/css/animate.css" type="text/css" media="all">
+		<!-- animated-text CSS -->
+		<link rel="stylesheet" href="../static/css/animated-text.css" type="text/css" media="all">
+		<!-- font-awesome CSS -->
+		<link rel="stylesheet" href="../static/css/all.min.css" type="text/css" media="all">
+		<!-- font-flaticon CSS -->
+		<link rel="stylesheet" href="../static/css/flaticon.css" type="text/css" media="all">
+		<!-- theme-default CSS -->
+		<link rel="stylesheet" href="../static/css/theme-default.css" type="text/css" media="all">
+		<!-- meanmenu CSS -->
+		<link rel="stylesheet" href="../static/css/meanmenu.min.css" type="text/css" media="all">
+		<!-- transitions CSS -->
+		<link rel="stylesheet" href="../static/css/owl.transitions.css" type="text/css" media="all">
+		<!-- venobox CSS -->
+		<link rel="stylesheet" href="../static/css/venobox.css" type="text/css" media="all">
+		<!-- bootstrap icons -->
+		<link rel="stylesheet" href="../static/css/bootstrap-icons.css" type="text/css" media="all">
+		<!-- Main Style CSS -->
+		<link rel="stylesheet" href="../static/css/style.css" type="text/css" media="all">
+		<!-- responsive CSS -->
+		<link rel="stylesheet" href="../static/css/responsive.css" type="text/css" media="all">
+		<!-- modernizr js -->
+		<script src="../static/js/modernizr-3.5.0.min.js"></script>
+		<link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+		<script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+		<style>
+			/* 定义样式 */
+			body {
+				margin: 0;
+				padding: 0;
+				font-family: Arial, sans-serif;
+			}
+
+			#navbar {
+				background-color: #4a89dc;
+				color: #fff;
+				display: flex;
+				padding: 10px;
+			}
+
+			#navbar button {
+				background-color: #036fe2;
+				color: #fff;
+				border: none;
+				padding: 10px;
+				margin-right: 10px;
+				cursor: pointer;
+				redis: 80%;
+			}
+
+			.content {
+				display: flex;
+				height: 100vh;
+			}
+
+			#canvas {
+				flex-basis: 50%;
+				background-color: #eee;
+				text-align: center;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.div {
+				flex-basis: 50%;
+				background-color: #fff;
+				text-align: center;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			#div.hidden {
+				display: none;
+				/* 默认隐藏右半部分 */
+			}
+
+			#fileInput {
+				display: none;
+				/* 隐藏文件选择框 */
+			}
+
+			.word {
+				text-align: center;
+				font-family: Arial, sans-serif;
+				font-size: 24px;
+				line-height: 1.5;
+				color: #666666;
+			}
+
+			button {
+				background-color: #036fe2;
+				color: #ffffff;
+				border: none;
+				padding: 10px 20px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				transition: background-color 0.3s, color 0.3s;
+				border-radius: 4px;
+				cursor: pointer;
+			}
+
+			.btn {
+				background-color: #036fe2;
+				color: #ffffff;
+				border: none;
+				padding: 10px 20px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				transition: background-color 0.3s, color 0.3s;
+				border-radius: 4px;
+				cursor: pointer;
+			}
+
+			.btn:hover {
+				background-color: #4a89dc;
+			}
+
+			.btn:active {
+				background-color: #4a89dc;
+			}
+
+			ul,
+			li {
+				margin: 0;
+				padding: 0;
+			}
+
+			ul {
+				list-style: none;
+				padding: 0;
+			}
+
+			li {
+				list-style: none;
+				border: 1px solid #dddddd;
+				width: 300px;
+				margin-bottom: 10px;
+				margin-right: 20px;
+				transition: background-color 0.3s;
+			}
+
+			li:hover {
+				background-color: #f6f6f6;
+			}
+
+			/* 动画效果 */
+			.animated {
+				animation-duration: 1s;
+				animation-fill-mode: both;
+			}
+
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			.fadeOut {
+				animation-name: fadeOut;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container mt-0 mx-0" id="navbar">
+			<nav class="navbar navbar-expand-sm bg-dark navbar-light fixed-top">
+				<button onclick="show1()" class="btn">简历解析</button>
+				<button onclick="show2()" class="btn">简历列表</button>
+				<button onclick="show3()" class="btn">人岗匹配</button>
+				<button onclick="show4()" class="btn">获取文本</button>
+				<button onclick="jump()" class="btn">文本输入</button>
+				<input type="file" id="fileInput" onchange="uploadPDF(event)" accept="application/pdf">
+			</nav>
+		</div>
+		<div id="content1" class="content">
+			<div id="canvas">
+				<button onclick="uploadFile()" class="btn">上传PDF文件</button>
+			</div>
+			<div id="div1" class="div">
+				<br><br>
+				<h2>Response</h2>
+				<p id="resumeData"></p>
+			</div>
+		</div>
+		<div id="content2" class="content">
+			<div id="div2" class="div">
+				<br><br>
+				<p id="resumeList"></p>
+			</div>
+		</div>
+		<div id="content3" class="content">
+			<div id="div3" class="div">
+				<br><br>
+				右半部分内容3
+			</div>
+		</div>
+		<div id="content4" class="content">
+			<div id="div4" class="div">
+				<br><br>
+				<div class="col-sm-4" id="box">
+					<div class="pb-1">输入简历id
+					</div>
+				</div>
+				<div class="col-sm-8">
+					<div class="pb-1 text-secondary"><input type="number" name="resumeId" id="resumeId" />
+					</div>
+				</div>
+				<button onclick="load()" class="btn animated">确认</button>
+				<p id="content" class="word"></p>
+			</div>
+		</div>
+		<!-- jquery js -->
+		<script src="../static/js/jquery-3.6.2.min.js"></script>
+		<script src="../static/js/popper.min.js"></script>
+		<!-- bootstrap js -->
+		<script src="../static/js/bootstrap.min.js"></script>
+		<!-- carousel js -->
+		<script src="../static/js/owl.carousel.min.js"></script>
+		<!-- counterup js -->
+		<script src="../static/js/jquery.counterup.min.js"></script>
+		<!-- waypoints js -->
+		<script src="../static/js/waypoints.min.js"></script>
+		<!-- wow js -->
+		<script src="../static/js/wow.js"></script>
+		<!-- imagesloaded js -->
+		<script src="../static/js/imagesloaded.pkgd.min.js"></script>
+		<!-- venobox js -->
+		<script src="../static/js/venobox.js"></script>
+		<!--  animated-text js -->
+		<script src="../static/js/animated-text.js"></script>
+		<!-- venobox min js -->
+		<script src="../static/js/venobox.min.js"></script>
+		<!-- isotope js -->
+		<script src="../static/js/isotope.pkgd.min.js"></script>
+		<!-- jquery meanmenu js -->
+		<script src="../static/js/jquery.meanmenu.js"></script>
+		<!-- jquery scrollup js -->
+		<script src="../static/js/jquery.scrollUp.js"></script>
+		<script src="../static/js/jquery.barfiller.js"></script>
+		<!-- jquery js -->
+		<!-- theme js -->
+		<script src="../static/js/theme.js"></script>
+		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+		<script>
+			function show1() {
+				document.getElementById("content1").style.display = "flex";
+				document.getElementById("content2").style.display = "none";
+				document.getElementById("content3").style.display = "none";
+				document.getElementById("content4").style.display = "none";
+			}
+
+			function show2() {
+				document.getElementById("content1").style.display = "none";
+				document.getElementById("content2").style.display = "flex";
+				document.getElementById("content3").style.display = "none";
+				document.getElementById("content4").style.display = "none";
+				var data = {
+					"current": 0,
+					"endTime": "",
+					"isDelete": 0,
+					"isReview": 0,
+					"keywords": "",
+					"size": 0,
+					"startTime": "",
+					"status": 0,
+					"type": 0
+				};
+				$(document).ready(function() {
+					var dataList = [];
+					$.ajax({
+						url: "/api/resumes/users/list",
+						type: "POST",
+						data: JSON.stringify(data),
+						dataType: "json",
+						contentType: "application/json;charset=utf-8",
+						success: function(response) {
+							console.log(response);
+							if (response['flag'] == true) {
+								dataList = response['data']['recordList'];
+								var resumeListElement = $("#resumeList");
+								resumeListElement.empty(); // 清空 #resumeList 元素的内容
+								for (var i = 0; i < dataList.length; i++) {
+									var species = dataList[i].filename;
+									if (!species.endsWith(".pdf"))
+										species = species + ".txt";
+									var listItem = $("<li>").text(i + 1 + ".ID: " + dataList[i].id + "---" +
+										species);
+									var button = $("<button>").text("下载");
+									button.css("margin-left", "80px");
+
+									// 使用闭包保存当前列表项的值
+									(function(item) {
+										// 给按钮添加点击事件处理程序
+										button.on("click", function() {
+											// 在按钮点击时，获取当前列表项的值（item），并触发 Ajax 请求
+											console.log(item);
+											if (item.path != null) {
+												// 发起你的 Ajax 请求
+												$.ajax({
+													url: "/api/resume/download",
+													data: JSON.stringify(item),
+													method: "POST",
+													success: function(response) {
+														alert("下载成功！");
+													},
+													error: function(error) {
+														alert("下载失败！");
+													}
+												});
+											}
+										});
+									})(dataList[i]);
+
+									// 将按钮元素添加到列表项中
+									listItem.append(button);
+									resumeListElement.append(listItem); // 将当前元素添加到 #resumeList 元素中
+								}
+								console.log(dataList);
+							} else
+								alert(response['message']);
+						}
+					})
+				})
+			}
+
+			function show3() {
+				document.getElementById("content1").style.display = "none";
+				document.getElementById("content2").style.display = "none";
+				document.getElementById("content3").style.display = "flex";
+				document.getElementById("content4").style.display = "none";
+			}
+
+			function show4() {
+				document.getElementById("content1").style.display = "none";
+				document.getElementById("content2").style.display = "none";
+				document.getElementById("content3").style.display = "none";
+				document.getElementById("content4").style.display = "flex";
+			}
+
+			function load() {
+				var id = document.getElementById("resumeId").value;
+				document.getElementById("box").style.display = "none";
+				var url = "/api/resumes/" + id;
+				$(document).ready(function() {
+					var dataList = [];
+					$.ajax({
+						url: url,
+						type: "GET",
+						dataType: "json",
+						contentType: "application/json;charset=utf-8",
+						success: function(response) {
+							console.log(response);
+							if (response['flag'] == true) {
+								data = response['data'];
+								var resumeListElement = $("#content");
+								resumeListElement.empty(); // 清空 #resumeList 元素的内容
+
+								var resumeHTML = "<ul>";
+								resumeHTML += "<li>ID: " + data.id + "</li>";
+								resumeHTML += "<li>名字: " + data.name + "</li>";
+								resumeHTML += "<li>用户名: " + data.username + "</li>";
+
+								// 处理schoolVOS数组
+								resumeHTML += "<li>学历: <ul>";
+								for (var i = 0; i < data.schoolVOS.length; i++) {
+									var school = data.schoolVOS[i];
+									resumeHTML += "<li>学校: " + school.university + "</li>";
+									resumeHTML += "<li>专业: " + school.major + "</li>";
+									resumeHTML += "<li>学历: " + school.degree + "</li>";
+									// 添加其他schoolVOS属性
+								}
+								resumeHTML += "</ul></li>";
+
+								// 处理projectVos数组
+								resumeHTML += "<li>项目经历: <ul>";
+								for (var i = 0; i < data.projectVos.length; i++) {
+									var project = data.projectVos[i];
+									resumeHTML += "<li>项目名称 " + project.projectName + "</li>";
+									resumeHTML += "<li>项目内容 " + project.projectContent + "</li>";
+									// 添加其他projectVos属性
+								}
+								resumeHTML += "</ul></li>";
+
+								// 处理workVOS数组
+								resumeHTML += "<li>工作经验: <ul>";
+								for (var i = 0; i < data.workVOS.length; i++) {
+									var work = data.workVOS[i];
+									resumeHTML += "<li>公司: " + work.company + "</li>";
+									resumeHTML += "<li>职位: " + work.job + "</li>";
+									// 添加其他workVOS属性
+								}
+								resumeHTML += "</ul></li>";
+
+								// 添加其他属性
+
+								resumeHTML += "</ul>";
+
+								resumeListElement.html(resumeHTML);
+								console.log(dataList);
+							} else
+								alert(response['message']);
+						}
+					})
+				})
+			}
+
+			function jump() {
+				window.location.href = "{{ url_for('before') }}";
+			}
+
+			// 上传PDF文件
+			function uploadFile() {
+				document.getElementById("fileInput").click();
+			}
+
+			// 处理上传的PDF文件
+			function uploadPDF(event) {
+				const file = event.target.files[0];
+				const reader = new FileReader();
+				reader.onload = function() {
+					// 在Canvas部分展示PDF文件内容
+					document.getElementById("canvas").innerHTML =
+						`<embed src="${reader.result}" width="100%" height="100%" type="application/pdf" />`;
+				};
+				reader.readAsDataURL(file);
+			}
+		</script>
+		<script>
+			window.onload = function() {
+				var resumeData = `{
+	"basic_infos": {
+		"cur_company": "",
+		"cur_duration": "",
+		"cur_job": "",
+		"highest_degree": "",
+		"job_intention": "打",
+		"major": "",
+		"name": "刘备",
+		"school": "",
+		"work_begin_year": ""
+	},
+	"education_infos": [
+		{
+			"is_in": "0",
+			"major": "计算机科学与技术",
+			"school": "厦门大学"
+		}
+	],
+	"else_infos": {
+		"skills": "HTMLCSSJavaScriptAdobe PhotoshopSketchAdobe XD"
+	},
+	"filename": "pdf文件",
+	"work_infos": [
+		{
+			"describe": "研发中心----年--月-----年--月",
+			"is_in": "0",
+			"job": "平面设计师"
+		},
+		{
+			"describe": "主要负责与市场沟通，页面制作分为pc端和移动端，和后台php工程师合作。开发职能：pc端主要用html/html5编写页面，利用javascript/jquery制作动态页面，主要功能有登录、注册、游戏列表、游戏充值等功能。",
+			"is_in": "0",
+			"job": "添加"
+		},
+		{
+			"describe": "计算机组成原理，信息系统开发项目管理技术，计算机网络技术，数据结构，计算机原理课程设计，计算方法，数据库原理，微机原理与汇编语言，软件工程，操作系统，单片机应用，信息系统分析与设计，人工智能导论，多媒体应用技术，高级程序语言设计，计算机系统结构，java语言程序设计，c++程序设计，计算机图形学编译原理语音与图象处理计算机专业英语电路基础模拟电子技术数添加联系我地址手机电子邮箱项目名称项目职责----年--月-----年--月项目内容",
+			"is_in": "0"
+		}
+	]
+}`;
+
+				var resumeDataString = JSON.stringify(JSON.parse(resumeData), null, '\t');
+				document.getElementById('resumeData').innerHTML = resumeData;
+			}
+
+			function syntaxHighlight(json) {
+				json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+				return json.replace(
+					/"([^(")"]+)":/g,
+					function(match, p1) {
+						return '<span class="key">' + p1 + '</span>:';
+					}
+				).replace(
+					/: (\d.*?(?=(,|"|$)))/g,
+					function(match, p1) {
+						return ': <span class="value">' + p1 + '</span>';
+					}
+				);
+			}
+		</script>
+	</body>
+</html>

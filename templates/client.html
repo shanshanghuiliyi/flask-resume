@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="x-ua-compatible" content="ie=edge" />
+		<title>求职端</title>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- Favicon -->
+
+		<!-- bootstrap CSS -->
+		<link rel="stylesheet" href="../static/css/bootstrap.min.css" type="text/css" media="all" />
+		<!-- carousel CSS -->
+		<link rel="stylesheet" href="../static/css/owl.carousel.min.css" type="text/css" media="all" />
+		<!-- animate CSS -->
+		<link rel="stylesheet" href="../static/css/animate.css" type="text/css" media="all" />
+		<!-- animated-text CSS -->
+		<link rel="stylesheet" href="../static/css/animated-text.css" type="text/css" media="all" />
+		<!-- font-awesome CSS -->
+		<link rel="stylesheet" href="../static/css/all.min.css" type="text/css" media="all" />
+		<!-- font-flaticon CSS -->
+		<link rel="stylesheet" href="../static/css/flaticon.css" type="text/css" media="all" />
+		<!-- theme-default CSS -->
+		<link rel="stylesheet" href="../static/css/theme-default.css" type="text/css" media="all" />
+		<!-- meanmenu CSS -->
+		<link rel="stylesheet" href="../static/css/meanmenu.min.css" type="text/css" media="all" />
+		<!-- transitions CSS -->
+		<link rel="stylesheet" href="../static/css/owl.transitions.css" type="text/css" media="all" />
+		<!-- venobox CSS -->
+		<link rel="stylesheet" href="../static/css/venobox.css" type="text/css" media="all" />
+
+		<!-- bootstrap icons -->
+		<link rel="stylesheet" href="../static/css/bootstrap-icons.css" type="text/css" media="all" />
+
+		<!-- Main Style CSS -->
+		<link rel="stylesheet" href="../static/css/style.css" type="text/css" media="all" />
+		<!-- responsive CSS -->
+		<link rel="stylesheet" href="../static/css/responsive.css" type="text/css" media="all" />
+
+		<!-- modernizr js -->
+		<script src="../static/js/modernizr-3.5.0.min.js"></script>
+		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://cdn.staticfile.org/foundation/5.5.3/css/foundation.min.css">
+		<script src="https://cdn.staticfile.org/foundation/5.5.3/js/foundation.min.js"></script>
+		<script src="https://cdn.staticfile.org/foundation/5.5.3/js/vendor/modernizr.js"></script>
+		<style>
+			#fileInput {
+				display: none;
+				/* 隐藏文件选择框 */
+			}
+
+			.word {
+				text-align: center;
+				font-family: Arial, sans-serif;
+				font-size: 24px;
+				line-height: 1.5;
+				color: #666666;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- loder -->
+		<div class="loader-wrapper">
+			<div class="loader"></div>
+			<div class="loder-section left-section"></div>
+			<div class="loder-section right-section"></div>
+		</div>
+
+		<div class="header-area header_bg" id="sticky-header">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-md-3">
+						<!--logo-->
+						<div class="logo">
+							<a href=""><img src="../static/picture/logo1.png" alt="logo img" /></a>
+						</div>
+					</div>
+					<div class="col-md-9">
+						<!--header-menu-->
+						<div class="header-menu">
+							<ul>
+								<li><a href="#">主页</a></li>
+								<li>
+									<a href="#">人才画像</a>
+									<ul class="sub-menu">
+										<li><a href="{{ url_for('picture') }}">了解人才画像</a></li>
+										<li>
+											<a href="{{ url_for('picture_detail') }}">人才画像服务</a>
+										</li>
+									</ul>
+								</li>
+								<li><a href="{{ url_for('client') }}">简历解析</a></li>
+								<li><a href="{{ url_for('fit') }}">人岗匹配</a></li>
+								<li><a href="{{ url_for('chief') }}">企业入口</a></li>
+							</ul>
+							<div class="header-menu-button">
+								<a href="#">你好，欢迎使用</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="mobile-menu-area sticky d-sm-block d-md-block d-lg-none">
+			<div class="mobile-menu">
+				<nav class="header-menu">
+					<ul class="nav_scroll">
+						<li><a href="#">主页</a></li>
+						<li>
+							<a href="#">人才画像</a>
+							<ul class="sub-menu">
+								<li><a href="{{ url_for('picture') }}">了解人才画像</a></li>
+								<li>
+									<a href="{{ url_for('picture_detail') }}">人才画像服务</a>
+								</li>
+							</ul>
+						</li>
+						<li><a href="{{ url_for('client') }}">简历解析</a></li>
+						<li><a href="{{ url_for('fit') }}">人岗匹配</a></li>
+						<li><a href="{{ url_for('chief') }}">企业入口</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+
+		<div class="breadcumb-area d-flex align-items-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<!--breadcumb-content-->
+						<div class="breacumb-content">
+							<div class="breadcumb-title">
+								<h1>简历解析</h1>
+							</div>
+							<div class="breadcumb-content-text">
+								<a href="index.html">主页</a><i class="fas fa-angle-right"></i><span>简历解析</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="faq-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6" id="canvas">
+						<div class="faq-thumb">
+							<input type="file" id="fileInput" onchange="uploadPDF(event)" accept="application/pdf" />
+							<button onclick="uploadFile()" class="btn" style="border:1px solid">上传PDF文件</button>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<!-- Start Accordion -->
+						<div class="tab_container">
+							<h1 class="faq-title">功能演示</h1>
+							<div id="tab1" class="tab_content">
+								<ul class="accordion">
+									<li>
+										<a id="link1"><span>简历解析</span></a>
+										<p id="resumeData"></p>
+									</li>
+									<li>
+										<a id="link2"><span>简历列表</span></a>
+										<p>
+										<div class="responsive">
+											<table>
+												<tbody id="wrap">
+
+												</tbody>
+											</table>
+										</div>
+										</p>
+										<p id="resumeList"></p>
+										<p id="content" class="word"></p>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="subscribe-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="subscribe-content text-center">
+							<div class="subscribe-title">
+								<h1>在这里，轻松创建一份出色的简历</h1>
+							</div>
+							<div class="subscribe-description">
+								<p>超过千万优秀人才的共同选择</p>
+							</div>
+							<div class="section-button">
+								<a class="active1" href="{{ url_for('jianli') }}">开始制作简历<i
+										class="bi bi-arrow-right"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- scrollup section -->
+		<div class="scroll-area">
+			<div class="top-wrap">
+				<div class="go-top-btn-wraper">
+					<div class="go-top go-top-button">
+						<i class="bi bi-chevron-double-up"></i>
+						<i class="bi bi-chevron-double-up"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 模态框 -->
+		<div class="modal" id="myModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">数据展示</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+<!--						<pre id="modalContent"></pre>-->
+						<div class="section">
+        <h2 class="section-title">基本信息</h2>
+        <ul class="data-list">
+            <li class="data-item"><label>姓名:</label> <span id="name"></span></li>
+            <li class="data-item"><label>出生日期:</label> <span id="birthtime"></span></li>
+            <li class="data-item"><label>性别:</label> <span id="gender"></span></li>
+            <li class="data-item"><label>电话:</label> <span id="phone"></span></li>
+            <li class="data-item"><label>邮箱:</label> <span id="email"></span></li>
+            <li class="data-item"><label>政治面貌:</label> <span id="political"></span></li>
+            <li class="data-item"><label>出生地:</label> <span id="birthplace"></span></li>
+            <li class="data-item"><label>居住城市:</label> <span id="liveCity"></span></li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">教育经历</h2>
+        <div id="education">
+            <ul class="data-list">
+                <li class="education-item">
+                    <span class="university"></span>，
+                    <span class="major"></span>，
+                    <span class="degree"></span>，
+                    <span class="startTime"></span>-<span class="endTime"></span>
+                    <span class="description"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">项目经历</h2>
+        <div id="projects">
+            <ul class="data-list">
+                <li class="project-item">
+                    <span class="project-name"></span>，
+                    <span class="duty"></span>，
+                    <span class="startTime"></span>-<span class="endTime"></span>
+                    <span class="project-content"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">工作经历</h2>
+        <div id="work">
+            <ul class="data-list">
+                <li class="work-item">
+                    <h4 class="company"></h4>
+                    <p class="job"></p>
+                    <p class="time"></p>
+                    <p class="work"></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+					</div>
+					<div class="modal-footer">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- jquery js -->
+		<script src="../static/js/jquery-3.6.2.min.js"></script>
+		<script src="../static/js/popper.min.js"></script>
+		<!-- bootstrap js -->
+		<script src="../static/js/bootstrap.min.js"></script>
+		<!-- carousel js -->
+		<script src="../static/js/owl.carousel.min.js"></script>
+		<!-- counterup js -->
+		<script src="../static/js/jquery.counterup.min.js"></script>
+		<!-- waypoints js -->
+		<script src="../static/js/waypoints.min.js"></script>
+		<!-- wow js -->
+		<script src="../static/js/wow.js"></script>
+		<!-- imagesloaded js -->
+		<script src="../static/js/imagesloaded.pkgd.min.js"></script>
+		<!-- venobox js -->
+		<script src="../static/js/venobox.js"></script>
+
+		<!--  animated-text js -->
+		<script src="../static/js/animated-text.js"></script>
+		<!-- venobox min js -->
+		<script src="../static/js/venobox.min.js"></script>
+		<!-- isotope js -->
+		<script src="../static/js/isotope.pkgd.min.js"></script>
+		<!-- jquery meanmenu js -->
+		<script src="../static/js/jquery.meanmenu.js"></script>
+
+		<!-- jquery scrollup js -->
+		<script src="../static/js/jquery.scrollUp.js"></script>
+
+		<script src="../static/js/jquery.barfiller.js"></script>
+		<!-- jquery js -->
+
+		<!-- theme js -->
+		<script src="../static/js/theme.js"></script>
+		<script>
+			document.write('<script src="//' + (location.host || 'localhost').split(':')[0] +
+				':35929/livereload.js?snipver=1"></' + 'script>')
+		</script>
+		<script>
+			document.addEventListener('LiveReloadDisconnect', function() {
+				setTimeout(function() {
+					window.location.reload();
+				}, 500);
+			})
+		</script>
+	</body>
+	<script>
+		var link2 = document.getElementById("link2");
+
+		link2.addEventListener("click", function(event) {
+		var data = {
+			"current": 0,
+			"endTime": "",
+			"isDelete": 0,
+			"isReview": 0,
+			"keywords": "",
+			"size": 0,
+			"startTime": "",
+			"status": 0,
+			"type": 0
+		};
+		$(document).ready(function() {
+			var dataList = [];
+			$.ajax({
+					url: "/api/resumes/users/list",
+					type: "POST",
+					data: JSON.stringify(data),
+					dataType: "json",
+					contentType: "application/json;charset=utf-8",
+					success: function(response) {
+						console.log(response);
+						if (response['flag'] == true) {
+							dataList = response['data']['recordList'];
+							var resumeListElement = $("#resumeList");
+							resumeListElement.empty(); // 清空 #resumeList 元素的内容
+							for (var i = 0; i < dataList.length; i++) {
+								var species = dataList[i].filename;
+								if (!species.endsWith(".pdf"))
+									species = species + ".txt";
+								var tr = $("<tr>");
+								var species = dataList[i].filename;
+								if (!species.endsWith(".pdf"))
+									species = species + ".txt";
+								var listItem1 = $("<td>").text(species);
+								tr.append(listItem1); // 将当前元素添加到 #resumeList 元素中
+								var td1 = $("<td>");
+								var td2 = $("<td>");
+								resumeListElement.append(tr);
+								var button1 = $("<button>").text("下载");
+								button1.css("margin-left", "80px");
+								var button2 = $("<button>").text("查看");
+								button2.css("margin-left", "80px");
+								(function(item) {
+								  button1.on("click", function() {
+								    console.log(item);
+								    if (item.path != null) {
+								      $.ajax({
+								        url: "/api/resume/download",
+								        data: JSON.stringify(item),
+								        method: "POST",
+								        responseType: 'blob',
+								        success: function(response) {
+								          var blob = new Blob([response]);
+								          var url = URL.createObjectURL(blob);
+
+								          var a = document.createElement('a');
+								          a.href = url;
+								          a.download = item['filename'];
+								          document.body.appendChild(a);
+								          a.click();
+								          document.body.removeChild(a);
+								          alert("下载成功！");
+								        },
+								        error: function(error) {
+								          alert("下载失败！");
+								        }
+								      });
+								    }
+								  });
+
+								  button2.on("click", function() {
+								    console.log(item);
+
+								    var url = "/api/resumes/" + item.id;
+								    $(document).ready(function() {
+								      var dataList = [];
+
+								      $.ajax({
+								        url: url,
+								        type: "GET",
+								        dataType: "json",
+								        contentType: "application/json;charset=utf-8",
+								        success: function(response) {
+								          console.log(response);
+								          if (response['flag'] == true) {
+								            resumeData = response['data'];
+											console.log(resumeData);
+<!--								            function showModal(data) {-->
+<!--								              var modalContent = document.getElementById("modalContent");-->
+<!--								              var imgElement = document.createElement("img");-->
+<!--								              imgElement.src = data;-->
+<!--								              imgElement.style.maxWidth = "100%";-->
+
+<!--								              modalContent.innerHTML = "";-->
+<!--								              modalContent.appendChild(imgElement);-->
+
+<!--								              $("#myModal").modal("show");-->
+<!--								            }-->
+								            function showModal(jsonData) {
+												var modalContent = document.getElementById("modalContent");
+												function replaceNullWithPlaceholder(data) {
+												  for (let key in data) {
+													if (data.hasOwnProperty(key)) {
+													  if (data[key] === null || data[key] === "") {
+														data[key] = "暂无";
+													  } else if (typeof data[key] === "object") {
+														replaceNullWithPlaceholder(data[key]); // 递归处理嵌套对象
+													  }
+													}
+												  }
+												}
+
+
+												replaceNullWithPlaceholder(jsonData);
+												console.log(jsonData);
+												// 填充基本信息
+												document.getElementById("name").textContent = jsonData.name;
+												document.getElementById("birthtime").textContent = jsonData.birthtime;
+												document.getElementById("gender").textContent = jsonData.gender;
+												document.getElementById("phone").textContent = jsonData.phone;
+												document.getElementById("email").textContent = jsonData.email;
+												document.getElementById("political").textContent = jsonData.political;
+												document.getElementById("birthplace").textContent = jsonData.birthplace;
+												document.getElementById("liveCity").textContent = jsonData.liveCity;
+
+												// 填充教育经历
+												const educationContainer = document.getElementById("education");
+												educationContainer.innerHTML = '';
+												const educationItems = jsonData.schoolVOS;
+												educationItems.forEach((educationItem) => {
+													const ulElem = document.createElement("ul");
+													ulElem.className = "data-list";
+													const itemElem = document.createElement("li");
+													itemElem.className = "education-item";
+													itemElem.innerHTML = `
+														<span class="university">${educationItem.university}</span>，
+														<span class="major">${educationItem.major}</span>，
+														<span class="degree">${educationItem.degree}</span>，
+														<span class="startTime">${educationItem.startTime}</span>-<span class="endTime">${educationItem.endTime}</span>
+														<span class="description">${educationItem.description}</span>
+													`;
+													ulElem.appendChild(itemElem);
+													educationContainer.appendChild(ulElem);
+												});
+
+												// 填充项目经历
+												const projectContainer = document.getElementById("projects");
+												projectContainer.innerHTML = '';
+												const projectItems = jsonData.projectVos;
+												projectItems.forEach((projectItem) => {
+													const ulElem = document.createElement("ul");
+													ulElem.className = "data-list";
+													const itemElem = document.createElement("li");
+													itemElem.className = "project-item";
+													itemElem.innerHTML = `
+														<span class="project-name">${projectItem.projectName}</span>，
+														<span class="duty">${projectItem.duty}</span>，
+														<span class="startTime">${projectItem.startTime}</span>-<span class="endTime">${projectItem.endTime}</span>
+														<span class="project-content">${projectItem.projectContent}</span>
+													`;
+													ulElem.appendChild(itemElem);
+													projectContainer.appendChild(ulElem);
+												});
+
+												// 填充工作经历
+												const workContainer = document.getElementById("work");
+												workContainer.innerHTML = '';
+												const workItems = jsonData.workVOS;
+												workItems.forEach((workItem) => {
+													const ulElem = document.createElement("ul");
+													ulElem.className = "data-list";
+													const itemElem = document.createElement("li");
+													itemElem.className = "work-item";
+													itemElem.innerHTML = `
+														<h4 class="company">${workItem.company}</h4>
+														<p class="job">${workItem.job}</p>
+														<p class="time">${workItem.startTime} - ${workItem.endTime}</p>
+														<p class="work">${workItem.work}</p>
+													`;
+													ulElem.appendChild(itemElem);
+													workContainer.appendChild(ulElem);
+												});
+												$("#myModal").modal("show"); // 使用jQuery方法展示模态框
+											}
+
+											jsonData = resumeData;
+											showModal(jsonData);
+								            console.log(dataList);
+								          } else {
+								            alert(response['message']);
+								          }
+								        }
+								      });
+								    })
+								  });
+								})(dataList[i]);
+
+						td1.append(button1);
+						td2.append(button2);
+						tr.append(listItem1);
+						tr.append(td1);
+						tr.append(td2);
+						resumeListElement.append(tr);
+					}
+					console.log(dataList);
+				}
+				else
+					alert(response['message']);
+			}
+		})
+		})
+		});
+
+
+		// 上传PDF文件
+		function uploadFile() {
+			document.getElementById("fileInput").click();
+		}
+
+		function uploadPDF(event) {
+			const file = event.target.files[0];
+			const reader = new FileReader();
+			reader.onload = function() {
+				// 在Canvas部分展示PDF文件内容
+				document.getElementById("canvas").innerHTML =
+					`<embed src="${reader.result}" width="100%" height="100%" type="application/pdf" />`;
+			};
+			reader.readAsDataURL(file);
+			// 创建FormData对象
+			var formData = new FormData();
+
+			// 将文件添加到FormData对象中
+			formData.append('file', file);
+
+			// 发送POST请求到接口
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', '/api/resumes/upload', true);
+			xhr.withCredentials = true;
+			xhr.onload = function() {
+				if (xhr.status === 200) {
+					// 上传成功
+					alert('文件上传成功');
+				} else {
+					// 上传失败
+					alert('文件上传失败');
+				}
+			};
+			xhr.send(formData);
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					console.log(xhr.responseText);
+				}
+			}
+			xhr.onerror = function(error) {
+				console.log(error);
+			}
+		}
+	</script>
+	<script>
+		window.onload = function() {
+			var resumeData = `{
+    	"basic_infos": {
+    		"cur_company": "",
+    		"cur_duration": "",
+    		"cur_job": "",
+    		"highest_degree": "",
+    		"job_intention": "打",
+    		"major": "",
+    		"name": "刘备",
+    		"school": "",
+    		"work_begin_year": ""
+    	},
+    	"education_infos": [
+    		{
+    			"is_in": "0",
+    			"major": "计算机科学与技术",
+    			"school": "厦门大学"
+    		}
+    	],
+    	"else_infos": {
+    		"skills": "HTMLCSSJavaScriptAdobe PhotoshopSketchAdobe XD"
+    	},
+    	"filename": "pdf文件",
+    	"work_infos": [
+    		{
+    			"describe": "研发中心----年--月-----年--月",
+    			"is_in": "0",
+    			"job": "平面设计师"
+    		},
+    		{
+    			"describe": "主要负责与市场沟通，页面制作分为pc端和移动端，和后台php工程师合作。开发职能：pc端主要用html/html5编写页面，利用javascript/jquery制作动态页面，主要功能有登录、注册、游戏列表、游戏充值等功能。",
+    			"is_in": "0",
+    			"job": "添加"
+    		},
+    		{
+    			"describe": "计算机组成原理，信息系统开发项目管理技术，计算机网络技术，数据结构，计算机原理课程设计，计算方法，数据库原理，微机原理与汇编语言，软件工程，操作系统，单片机应用，信息系统分析与设计，人工智能导论，多媒体应用技术，高级程序语言设计，计算机系统结构，java语言程序设计，c++程序设计，计算机图形学编译原理语音与图象处理计算机专业英语电路基础模拟电子技术数添加联系我地址手机电子邮箱项目名称项目职责----年--月-----年--月项目内容",
+    			"is_in": "0"
+    		}
+    	]
+    }`;
+			// 展示模态框，填充数据
+			function showModal(data) {
+				var modalContent = document.getElementById("modalContent");
+				modalContent.textContent = JSON.stringify(data, null, 2); // 使用JSON.stringify格式化JSON数据
+				$("#myModal").modal("show"); // 使用jQuery方法展示模态框
+			}
+			var link1 = document.getElementById("link1");
+
+			link1.addEventListener("click", function(event) {
+				const body = document.querySelector('body');
+				body.classList.remove('loaded');
+				var data = {
+					"current": 0,
+					"endTime": "",
+					"isDelete": 0,
+					"isReview": 0,
+					"keywords": "",
+					"size": 0,
+					"startTime": "",
+					"status": 0,
+					"type": 0
+				};
+				var id = 0;
+				$.ajax({
+					url: "/api/resumes/users/list",
+					type: "POST",
+					data: JSON.stringify(data),
+					dataType: "json",
+					contentType: "application/json;charset=utf-8",
+					success: function(response) {
+						console.log(response);
+						if (response['flag'] == true) {
+							var recordList = response['data']['recordList'];
+							id = recordList[recordList.length - 1]['id'];
+							var url = "/api/resumes/" + id + "/parse";
+							$.ajax({
+								url: url,
+								type: "GET",
+								dataType: "json",
+								contentType: "application/json;charset=utf-8",
+								success: function(response) {
+									console.log(response);
+									if (response['flag'] == true) {
+										resumeData = response['data'];
+										console.log(resumeData);
+										body.classList.add('loaded');
+
+										function showModal(jsonData) {
+												var modalContent = document.getElementById("modalContent");
+												function replaceNullWithPlaceholder(data) {
+												  for (let key in data) {
+													if (data.hasOwnProperty(key)) {
+													  if (data[key] === null || data[key] === "") {
+														data[key] = "暂无";
+													  } else if (typeof data[key] === "object") {
+														replaceNullWithPlaceholder(data[key]); // 递归处理嵌套对象
+													  }
+													}
+												  }
+												}
+
+
+												replaceNullWithPlaceholder(jsonData);
+												console.log(jsonData);
+												// 填充基本信息
+												document.getElementById("name").textContent = jsonData.name;
+												document.getElementById("birthtime").textContent = jsonData.birthtime;
+												document.getElementById("gender").textContent = jsonData.gender;
+												document.getElementById("phone").textContent = jsonData.phone;
+												document.getElementById("email").textContent = jsonData.email;
+												document.getElementById("political").textContent = jsonData.political;
+												document.getElementById("birthplace").textContent = jsonData.birthplace;
+												document.getElementById("liveCity").textContent = jsonData.liveCity;
+
+												// 填充教育经历
+												const educationContainer = document.getElementById("education");
+												educationContainer.innerHTML = '';
+												const educationItems = jsonData.schoolParDTOList;
+												educationItems.forEach((educationItem) => {
+													const ulElem = document.createElement("ul");
+													ulElem.className = "data-list";
+													const itemElem = document.createElement("li");
+													itemElem.className = "education-item";
+													itemElem.innerHTML = `
+														<span class="university">${educationItem.university}</span>，
+														<span class="degree">${educationItem.degree}</span>，
+														<span class="time">${educationItem.time}</span>
+													`;
+													ulElem.appendChild(itemElem);
+													educationContainer.appendChild(ulElem);
+												});
+
+												// 填充项目经历
+												const projectContainer = document.getElementById("projects");
+												projectContainer.innerHTML = '';
+												const projectItems = jsonData.projectParDTOList;
+												projectItems.forEach((projectItem) => {
+													const ulElem = document.createElement("ul");
+													ulElem.className = "data-list";
+													const itemElem = document.createElement("li");
+													itemElem.className = "project-item";
+													itemElem.innerHTML = `
+														<span class="project-name">${projectItem.projectName}</span>，
+														<span class="duty">${projectItem.duty}</span>，
+														<span class="time">${projectItem.time}</span>
+													`;
+													ulElem.appendChild(itemElem);
+													projectContainer.appendChild(ulElem);
+												});
+
+												// 填充工作经历
+												const workContainer = document.getElementById("work");
+												workContainer.innerHTML = '';
+												const workItems = jsonData.workParDTOList;
+												workItems.forEach((workItem) => {
+													const ulElem = document.createElement("ul");
+													ulElem.className = "data-list";
+													const itemElem = document.createElement("li");
+													itemElem.className = "work-item";
+													itemElem.innerHTML = `
+														<h4 class="company">${workItem.company}</h4>
+														<p class="job">${workItem.job}</p>
+														<p class="time">${workItem.time}</p>
+														<p class="work">${workItem.work}</p>
+													`;
+													ulElem.appendChild(itemElem);
+													workContainer.appendChild(ulElem);
+												});
+												$("#myModal").modal("show"); // 使用jQuery方法展示模态框
+											}
+
+										// 示例使用
+<!--										var imageUrl = "https://img1.imgtp.com/2023/07/16/xVPHlRV4.png"; // 图片的URL-->
+										showModal(resumeData);
+									} else
+										alert("解析失败！");
+								},
+								error: function(error) {
+									console.log(error);
+									alert("解析失败！");
+								}
+							})
+						}
+					}
+				});
+			});
+		}
+	</script>
+</html>

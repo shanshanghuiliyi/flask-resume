@@ -1,0 +1,289 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Life Coach HTML5 Template</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Favicon -->
+
+		<!-- bootstrap CSS -->
+		<link rel="stylesheet" href="../static/css/bootstrap.min.css" type="text/css" media="all">
+		<!-- carousel CSS -->
+		<link rel="stylesheet" href="../static/css/owl.carousel.min.css" type="text/css" media="all">
+		<!-- animate CSS -->
+		<link rel="stylesheet" href="../static/css/animate.css" type="text/css" media="all">
+		<!-- animated-text CSS -->
+		<link rel="stylesheet" href="../static/css/animated-text.css" type="text/css" media="all">
+		<!-- font-awesome CSS -->
+		<link rel="stylesheet" href="../static/css/all.min.css" type="text/css" media="all">
+		<!-- font-flaticon CSS -->
+		<link rel="stylesheet" href="../static/css/flaticon.css" type="text/css" media="all">
+		<!-- theme-default CSS -->
+		<link rel="stylesheet" href="../static/css/theme-default.css" type="text/css" media="all">
+		<!-- meanmenu CSS -->
+		<link rel="stylesheet" href="../static/css/meanmenu.min.css" type="text/css" media="all">
+		<!-- transitions CSS -->
+		<link rel="stylesheet" href="../static/css/owl.transitions.css" type="text/css" media="all">
+		<!-- venobox CSS -->
+		<link rel="stylesheet" href="../static/css/venobox.css" type="text/css" media="all">
+		<!-- bootstrap icons -->
+		<link rel="stylesheet" href="../static/css/bootstrap-icons.css" type="text/css" media="all">
+		<!-- Main Style CSS -->
+		<link rel="stylesheet" href="../static/css/style.css" type="text/css" media="all">
+		<!-- responsive CSS -->
+		<link rel="stylesheet" href="../static/css/responsive.css" type="text/css" media="all">
+		<!-- modernizr js -->
+		<script src="../static/js/modernizr-3.5.0.min.js"></script>
+	</head>
+
+	<body>
+		<div class="loader-wrapper">
+			<div class="loader"></div>
+			<div class="loder-section left-section"></div>
+			<div class="loder-section right-section"></div>
+		</div>
+
+		<div class="header-area header_bg" id="sticky-header">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-md-3">
+						<!--logo-->
+						<div class="logo">
+							<a href="index.html"><img src="../static/picture/logo1.png" alt="logo img"></a>
+						</div>
+					</div>
+					<div class="col-md-9">
+						<!--header-menu-->
+						<div class="header-menu">
+							<ul>
+								<li><a href="#">主页</a></li>
+								<li><a href="#">人才画像</a>
+									<ul class="sub-menu">
+										<li><a href="{{ url_for('picture') }}">了解人才画像</a></li>
+										<li><a href="{{ url_for('picture_detail') }}">人才画像服务</a></li>
+									</ul>
+								</li>
+								<li><a href="{{ url_for('client') }}">简历解析</a></li>
+								<li><a href="{{ url_for('fit') }}">人岗匹配</a></li>
+								<li><a href="{{ url_for('chief') }}">企业入口</a></li>
+							</ul>
+							<div class="header-menu-button">
+								<a href="#">你好,欢迎使用<i class="bi bi-arrow-right"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="mobile-menu-area sticky d-sm-block d-md-block d-lg-none ">
+			<div class="mobile-menu">
+				<nav class="header-menu">
+					<ul class="nav_scroll">
+						<li><a href="#">主页</a></li>
+								<li><a href="#">人才画像</a>
+									<ul class="sub-menu">
+										<li><a href="{{ url_for('picture') }}">了解人才画像</a></li>
+										<li><a href="{{ url_for('picture_detail') }}">人才画像服务</a></li>
+									</ul>
+								</li>
+								<li><a href="{{ url_for('client') }}">简历解析</a></li>
+								<li><a href="{{ url_for('fit') }}">人岗匹配</a></li>
+								<li><a href="{{ url_for('chief') }}">企业入口</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+
+		<div class="breadcumb-area d-flex align-items-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<!--breadcumb-content-->
+						<div class="breacumb-content">
+							<div class="breadcumb-title">
+								<h1>了解人才画像</h1>
+							</div>
+							<div class="breadcumb-content-text">
+								<a href="index.html">主页</a><i class="fas fa-angle-right"></i><span>了解人才画像</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="serivce-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<!--section title-->
+						<div class="section-title text-center">
+							<div class="section-sub-title">
+								<h4>人才画像</h4>
+							</div>
+							<div class="section-main-title">
+								<h1>关于人才画像的“三连问”</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-6">
+						<!--service single box-->
+						<div class="service-single-box">
+							<div class="service-icon">
+								<img src="../static/picture/service1.png" alt="icon">
+							</div>
+							<!--service box content-->
+							<div class="service-box-content">
+								<div class="service-title">
+									<h3>一、人才画像的构成有哪些？</h3>
+								</div>
+								<div class="service-description">
+									<p>
+										1. 基本情况画像
+										2. 性格倾向（核心性格特质）
+										3.综合素质（认知能力+能力倾向）
+										4. 关键技能（高绩效需具备的重要
+										知识和技能）
+										5. 驱动力（激励因素）</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6">
+						<!--service single box-->
+						<div class="service-single-box">
+							<div class="service-icon">
+								<img src="../static/picture/service2.png" alt="icon">
+							</div>
+							<!--service box content-->
+							<div class="service-box-content">
+								<div class="service-title">
+									<h3>二、人才画像的应用有哪些？</h3>
+								</div>
+								<div class="service-description">
+									<p>
+										人才画像多用于团队核心人才的选、用、育、留等环节，主要关注核心人才如何实现有效供给的问题。
+										1、人才选拔：人才供应难以与业务发展速度匹配、依赖外部人才供给、部分岗位任职成果率低、人才队伍
+										臃肿、关键人才流失严重等问题
+										2、人才任用：人岗不匹配、团队人员配置不科学、转型阶段需要任用新类型的员工等问题
+										3、人才培养：培训需求收集与分析、团队能力现状扫描与评估等问题
+										4、人才激励：优秀人才无法充分发挥能力与主观能动性、优秀人才流失加剧等问题</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6">
+						<!--service single box-->
+						<div class="service-single-box">
+							<div class="service-icon">
+								<img src="../static/picture/service3.png" alt="icon">
+							</div>
+							<!--service box content-->
+							<div class="service-box-content">
+								<div class="service-title">
+									<h3>三、哪些岗位适合做人才画像？</h3>
+								</div>
+								<div class="service-description">
+									<p>
+										l.同一职位有很多任职者的岗位，例如项目实施、技
+										术开发、售前人员等；
+										2.关键岗位，特别是管理岗位，如团队的Leader、项
+										目经理等；
+										3.特殊类的岗位，例如管培生等。</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="chosse-us-area d-flex align-items-center">
+			<div class="container-fluid">
+				<div class="row d-flex align-items-center">
+					<div class="col-lg-6">
+
+					</div>
+					<div class="col-lg-6">
+						<div class="choose-us-right">
+							<!--section title-->
+							<div class="section-title">
+								<div class="section-sub-title">
+									<h4>案例</h4>
+								</div>
+								<div class="section-main-title">
+									<span>某公司对蓝牙工程师的画像（案例分析，分析有点粗，仅供参考，不可直接使用，需要根据企业的实际来操作，我是抛砖引玉的，你们举一反三，你们不把自己的玉拿出来，就会被拍砖了）岗位说明书：需要这个岗位的蓝牙工程师具备独立开发蓝牙设备的能力，需要至少3年以上蓝牙设备的开发经验。</span>
+								</div>
+								<div class="section-description">
+									<p>第一层次：男性（并非歧视女性，是这个公司认为男性更合适），28-35岁，身高1.65-1.75米，体重120-140斤，大多数戴眼镜，发际线高，微胖的体型，运动不多，喜欢穿牛仔裤、T恤和运动休闲的鞋子，肤色偏浅。
+									</p>
+
+
+
+									<p>第二层次：喜欢电子设备，喜欢讨论专业的问题，书面表达优于语言表达，主要的活动场所是公司、家和朋友约会，微信和头条等工具上喜欢看技术类、科技类的文章，喜欢出没于专业的论坛、社区、社群等，并积极发表自己的意见和见解。
+									</p>
+
+
+
+									<p>第三层次：希望在行业内能够做出业绩，并获得一定能的社会认可和相应的经济收益，最担心的就是没有平台可以让他尽可能地进行研究和研发。通过以上的描述，在你的脑海里面是否可以比较清晰地看到这个人的样子了；如果进到对应的场景里面，你是否可以很快地辨认出这个人是否是你们需要的人才。
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- scrollup section -->
+		<div class="scroll-area">
+			<div class="top-wrap">
+				<div class="go-top-btn-wraper">
+					<div class="go-top go-top-button">
+						<i class="bi bi-chevron-double-up"></i>
+						<i class="bi bi-chevron-double-up"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- jquery js -->
+		<script src="../static/js/jquery-3.6.2.min.js"></script>
+		<script src="../static/js/popper.min.js"></script>
+		<!-- bootstrap js -->
+		<script src="../static/js/bootstrap.min.js"></script>
+		<!-- carousel js -->
+		<script src="../static/js/owl.carousel.min.js"></script>
+		<!-- counterup js -->
+		<script src="../static/js/jquery.counterup.min.js"></script>
+		<!-- waypoints js -->
+		<script src="../static/js/waypoints.min.js"></script>
+		<!-- wow js -->
+		<script src="../static/js/wow.js"></script>
+		<!-- imagesloaded js -->
+		<script src="../static/js/imagesloaded.pkgd.min.js"></script>
+		<!-- venobox js -->
+		<script src="../static/js/venobox.js"></script>
+		<!--  animated-text js -->
+		<script src="../static/js/animated-text.js"></script>
+		<!-- venobox min js -->
+		<script src="../static/js/venobox.min.js"></script>
+		<!-- isotope js -->
+		<script src="../static/js/isotope.pkgd.min.js"></script>
+		<!-- jquery meanmenu js -->
+		<script src="../static/js/jquery.meanmenu.js"></script>
+		<!-- jquery scrollup js -->
+		<script src="../static/js/jquery.scrollUp.js"></script>
+		<script src="../static/js/jquery.barfiller.js"></script>
+		<!-- jquery js -->
+		<!-- theme js -->
+		<script src="../static/js/theme.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>注册/登录</title>
+		<!-- 导入字体图标 -->
+		<link rel="stylesheet" href="../static/font/font_mw3z7ts489g/iconfont.css">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Favicon -->
+		<!-- bootstrap CSS -->
+<!--		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">-->
+		<link rel="stylesheet" href="../static/css/bootstrap.min.css" type="text/css" media="all">
+		<!-- carousel CSS -->
+		<link rel="stylesheet" href="../static/css/owl.carousel.min.css" type="text/css" media="all">
+		<!-- animate CSS -->
+		<link rel="stylesheet" href="../static/css/animate.css" type="text/css" media="all">
+		<!-- animated-text CSS -->
+		<link rel="stylesheet" href="../static/css/animated-text.css" type="text/css" media="all">
+		<!-- font-awesome CSS -->
+		<link rel="stylesheet" href="../static/css/all.min.css" type="text/css" media="all">
+		<!-- font-flaticon CSS -->
+		<link rel="stylesheet" href="../static/css/flaticon.css" type="text/css" media="all">
+		<!-- theme-default CSS -->
+		<link rel="stylesheet" href="../static/css/theme-default.css" type="text/css" media="all">
+		<!-- meanmenu CSS -->
+		<link rel="stylesheet" href="../static/css/meanmenu.min.css" type="text/css" media="all">
+		<!-- transitions CSS -->
+		<link rel="stylesheet" href="../static/css/owl.transitions.css" type="text/css" media="all">
+		<!-- venobox CSS -->
+		<link rel="stylesheet" href="../static/css/venobox.css" type="text/css" media="all">
+		<!-- bootstrap icons -->
+		<link rel="stylesheet" href="../static/css/bootstrap-icons.css" type="text/css" media="all">
+		<!-- Main Style CSS -->
+		<link rel="stylesheet" href="../static/css/style.css" type="text/css" media="all">
+		<!-- responsive CSS -->
+		<link rel="stylesheet" href="../static/css/responsive.css" type="text/css" media="all">
+		<!-- modernizr js -->
+		<script src="../static/js/modernizr-3.5.0.min.js"></script>
+		<link rel="stylesheet" href="../static/css/login.css">
+	</head>
+
+	<body>
+		<div class="shell">
+			<div class="container a-container" id="a-container">
+				<form class="form" id="a-form">
+					<h2 class="form_title title">创建账号</h2>
+					<div class="form_icons">
+						<i class="iconfont icon-QQ"></i>
+						<i class="iconfont icon-weixin"></i>
+					</div>
+					<span class="form_span">选择注册方式激活电子邮箱注册</span>
+					<input type="text" class="form_input" placeholder="用户名" id="name1" name="name1" required>
+					<input type="email" class="form_input" placeholder="电子邮箱" id="email1" name="email1" required>
+					<button class="captcha" id="sendBtn">发送验证码</button>
+					<input type="text" class="form_input" placeholder="邮箱验证码" id="code1" name="code1" required>
+					<input type="password" class="form_input" placeholder="密码" id="password1" name="password1" required>
+					<button class="form_button button submit" id="submit1">注册</button>
+				</form>
+			</div>
+
+			<div class="container b-container" id="b-container">
+				<form class="form" id="b-form" action="http://127.0.0.1:5000/login-data" method="POST">
+					<h2 class="form_title title">登入账号</h2>
+					<div class="form_icons">
+						<i class="iconfont icon-QQ"></i>
+						<i class="iconfont icon-weixin"></i>
+					</div>
+					<span class="form_span">选择登录方式激活电子邮箱登录</span>
+					<input type="email" class="form_input" placeholder="电子邮箱" id="email2" name="email2" required>
+					<input type="password" class="form_input" placeholder="密码" id="password2" name="password2" required>
+					<a class="form_link" href="javascript:;" onclick="remember()"
+						style="text-decoration: none;">忘记密码？</a>
+					<button class="form_button button submit" id="submit2">登录</button>
+				</form>
+			</div>
+
+			<div class="switch" id="switch-cnt">
+				<div class="switch_circle"></div>
+				<div class="switch_circle switch_circle-t"></div>
+				<div class="switch_container" id="switch-c1">
+					<h2 class="switch_title title" style="letter-spacing: 0;">Welcome Back！</h2>
+					<p class="switch_description description">已经有账号了嘛，去登入账号来进入奇妙世界吧！</p>
+					<button class="switch_button button switch-btn">登录</button>
+				</div>
+
+				<div class="switch_container is-hidden" id="switch-c2">
+					<h2 class="switch_title title" style="letter-spacing: 0;">Hello Friend！</h2>
+					<p class="switch_description description">去注册一个账号，让我们一起踏入奇妙的旅途！</p>
+					<button class="switch_button button switch-btn">注册</button>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
+<!-- jquery js -->
+		<script src="../static/js/jquery-3.6.2.min.js"></script>
+		<script src="../static/js/popper.min.js"></script>
+		<!-- bootstrap js -->
+		<script src="../static/js/bootstrap.min.js"></script>
+		<!-- carousel js -->
+		<script src="../static/js/owl.carousel.min.js"></script>
+		<!-- counterup js -->
+		<script src="../static/js/jquery.counterup.min.js"></script>
+		<!-- waypoints js -->
+		<script src="../static/js/waypoints.min.js"></script>
+		<!-- wow js -->
+		<script src="../static/js/wow.js"></script>
+<!--<script src="{{ url_for('static', filename='js/wow.js') }}"></script>-->
+		<!-- imagesloaded js -->
+		<script src="../static/js/imagesloaded.pkgd.min.js"></script>
+		<!-- venobox js -->
+		<script src="../static/js/venobox.js"></script>
+		<!--  animated-text js -->
+		<script src="../static/js/animated-text.js"></script>
+		<!-- venobox min js -->
+		<script src="../static/js/venobox.min.js"></script>
+		<!-- isotope js -->
+		<script src="../static/js/isotope.pkgd.min.js"></script>
+		<!-- jquery meanmenu js -->
+		<script src="../static/js/jquery.meanmenu.js"></script>
+		<!-- jquery scrollup js -->
+		<script src="../static/js/jquery.scrollUp.js"></script>
+		<script src="../static/js/jquery.barfiller.js"></script>
+		<!-- jquery js -->
+		<!-- theme js -->
+		<script src="../static/js/theme.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+	let switchCtn = document.querySelector("#switch-cnt");
+	let switchC1 = document.querySelector("#switch-c1");
+	let switchC2 = document.querySelector("#switch-c2");
+	let switchCircle = document.querySelectorAll(".switch_circle");
+	let switchBtn = document.querySelectorAll(".switch-btn");
+	let aContainer = document.querySelector("#a-container");
+	let bContainer = document.querySelector("#b-container");
+	let allButtons = document.querySelectorAll(".submit");
+
+	let getButtons = (e) => e.preventDefault()
+	let changeForm = (e) => {
+		// 修改类名
+		switchCtn.classList.add("is-gx");
+		setTimeout(function() {
+			switchCtn.classList.remove("is-gx");
+		}, 1500)
+		switchCtn.classList.toggle("is-txr");
+		switchCircle[0].classList.toggle("is-txr");
+		switchCircle[1].classList.toggle("is-txr");
+		switchC1.classList.toggle("is-hidden");
+		switchC2.classList.toggle("is-hidden");
+		aContainer.classList.toggle("is-txl");
+		bContainer.classList.toggle("is-txl");
+		bContainer.classList.toggle("is-z");
+	}
+	// 点击切换
+	let shell = (e) => {
+		for (var i = 0; i < allButtons.length; i++)
+			allButtons[i].addEventListener("click", getButtons);
+		for (var i = 0; i < switchBtn.length; i++)
+			switchBtn[i].addEventListener("click", changeForm)
+	}
+	window.addEventListener("load", shell);
+	window.remember = function() {
+		var myDiv = document.getElementById("b-container");
+		const text = `<form class="form" id="c-form">
+		<h2 class="form_title title">重置密码</h2>
+					<div class="form_icons">
+						<i class="iconfont icon-QQ"></i>
+						<i class="iconfont icon-weixin"></i>
+					</div>
+					<span class="form_span">重置需要激活电子邮箱</span>
+					<input type="text" class="form_input" placeholder="用户名" id="name3" name="name3" required>
+					<input type="email" class="form_input" placeholder="电子邮箱" id="email3" name="email3" required>
+					<button class="captcha" id="sendBtn3">发送验证码</button>
+					<input type="text" class="form_input" placeholder="邮箱验证码" id="code3" name="code3" required>
+					<input type="password" class="form_input" placeholder="密码" id="password3" name="password3" required>
+					<button class="form_button button submit" id="submit3">重置</button>
+					</form>`;
+		myDiv.innerHTML = text;
+		$("#sendBtn3").click(function() {
+			var email = $("#email3").val();
+			$.ajax({
+				url: "/api/users/code",
+				type: "GET",
+				data: {
+					username: email
+				},
+				success: function(response) {
+					alert("验证码已发送，请在邮箱查收！");
+				},
+				error: function(error) {
+					alert("发送验证码失败！");
+				}
+			});
+		});
+		$("#submit3").click(function() {
+			var username = $("#name3").val();
+			var email = $("#email3").val();
+			var code = $("#code3").val();
+			var password = $("#password3").val();
+			console.log(code);
+			$.ajax({
+				url: "/api/users/password",
+				type: "PUT",
+				async: false,
+				data: JSON.stringify({
+					"code": code,
+					"password": password,
+					"username": email
+				}),
+				dataType: 'JSON',
+				contentType:"application/json;charset=utf-8",
+				success: function(response) {
+					console.log(response);
+					if (response['flag'] == true)
+						window.location.href = "{{ url_for('after') }}";
+					else
+						alert('重置失败！');
+				},
+				error: function(error) {
+					console.log(error);
+					alert("表单提交失败！");
+				}
+			});
+		});
+	}
+	$(document).ready(function() {
+		// 发送验证码
+		$("#sendBtn").click(function() {
+			var email = $("#email1").val();
+			$.ajax({
+				url: "/api/users/code",
+				type: "GET",
+				data: {
+					username: email
+				},
+				success: function(response) {
+					alert("验证码已发送，请在邮箱查收！");
+				},
+				error: function(error) {
+					alert("发送验证码失败！");
+				}
+			});
+		});
+		$("#submit1").click(function() {
+			var username = $("#name1").val();
+			var email = $("#email1").val();
+			var code = $("#code1").val();
+			var password = $("#password1").val();
+			console.log(code);
+			$.ajax({
+				url: "/api/register",
+				type: "POST",
+				async: false,
+				data: JSON.stringify({
+					"code": code,
+					"password": password,
+					"username": email
+				}),
+				dataType: 'JSON',
+				contentType:"application/json;charset=utf-8",
+				success: function(response) {
+					console.log(response);
+					if (response['flag'] == true)
+						window.location.href = "{{ url_for('after') }}";
+					else
+						alert(response['message']);
+				},
+				error: function(error) {
+					console.log(error);
+					alert("表单提交失败！");
+				}
+			});
+		});
+		$("#submit2").click(function() {
+			var email = $("#email2").val();
+			var password = $("#password2").val();
+			$.ajax({
+				url: "/api/login",
+				type: "POST",
+				data: {
+					"username": email,
+					"password": password
+				},
+<!--				xhrFields: {-->
+<!--        			withCredentials: true // 允许跨域携带cookie信息-->
+<!--    			},-->
+				beforeSend: function (xhr) {
+　　　　　　			xhr.withCredentials = true
+　　　　			},
+				crossDomain: true,
+				success: function(response) {
+					console.log(response);
+					if (response['flag'] == true){
+						alert('登录成功！');
+						console.log(response['data']['roleList'][0]);
+<!--						console.log({{ logged_in }});-->
+
+						if(response['data']['roleList'][0]=='user'){
+							window.location.href = "{{ url_for('after') }}";
+							}else if (response['data']['roleList'][0]=='admin'){
+								window.location.href = "{{ url_for('manage') }}";}
+					}else{
+						alert('登录失败！');
+						}
+				},
+				error: function(error) {
+					console.log(error);
+					alert("表单提交失败！");
+				}
+			});
+		});
+	});
+</script>
+</body>
+
+</html>

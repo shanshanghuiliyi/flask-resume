@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .data-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 5px;
+        }
+
+        .data-item {
+            margin-top: 5px;
+        }
+
+        .data-item label {
+            font-weight: bold;
+        }
+
+        .education-item,
+        .project-item,
+        .work-item {
+            margin-top: 15px;
+        }
+
+        .education-item .university,
+        .project-item .project-name,
+        .work-item .company {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="section">
+        <h2 class="section-title">基本信息</h2>
+        <ul class="data-list">
+            <li class="data-item"><label>姓名:</label> <span id="name"></span></li>
+            <li class="data-item"><label>出生日期:</label> <span id="birthtime"></span></li>
+            <li class="data-item"><label>性别:</label> <span id="gender"></span></li>
+            <li class="data-item"><label>电话:</label> <span id="phone"></span></li>
+            <li class="data-item"><label>邮箱:</label> <span id="email"></span></li>
+            <li class="data-item"><label>政治面貌:</label> <span id="political"></span></li>
+            <li class="data-item"><label>出生地:</label> <span id="birthplace"></span></li>
+            <li class="data-item"><label>居住城市:</label> <span id="liveCity"></span></li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">教育经历</h2>
+        <div id="education">
+            <ul class="data-list">
+                <li class="education-item">
+                    <span class="university"></span>，
+                    <span class="major"></span>，
+                    <span class="degree"></span>，
+                    <span class="startTime"></span>-<span class="endTime"></span>
+                    <span class="description"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">项目经历</h2>
+        <div id="projects">
+            <ul class="data-list">
+                <li class="project-item">
+                    <span class="project-name"></span>，
+                    <span class="duty"></span>，
+                    <span class="startTime"></span>-<span class="endTime"></span>
+                    <span class="project-content"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">工作经历</h2>
+        <div id="work">
+            <ul class="data-list">
+                <li class="work-item">
+                    <h4 class="company"></h4>
+                    <p class="job"></p>
+                    <p class="time"></p>
+                    <p class="work"></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const jsonData = {
+            "id": 263,
+            "name": "张吉惟",
+            "username": "用户2609923707@qq.com",
+            "birthtime": null,
+            "gender": "女",
+            "phone": "138 9999 9999",
+            "email": null,
+            "political": "党员",
+            "birthplace": "北京海淀区",
+            "schoolVOS": [
+                {
+                    "university": "北京师范大学",
+                    "major": null,
+                    "degree": "本科",
+                    "endTime": null,
+                    "description": null,
+                    "startTime": null
+                },
+                {
+                    "university": "北京大学",
+                    "major": null,
+                    "degree": "硕士",
+                    "endTime": null,
+                    "description": null,
+                    "startTime": null
+                }
+            ],
+            "projectVos": [
+                {
+                    "endTime": null,
+                    "duty": "",
+                    "startTime": null,
+                    "projectContent": null,
+                    "projectName": ""
+                }
+            ],
+            "workVOS": [
+                {
+                    "company": "北京猫眼机械有限公司",
+                    "job": "部长助理",
+                    "endTime": null,
+                    "work": "负责票证车间生产质量检查",
+                    "startTime": null
+                },
+                {
+                    "company": "北京猫眼国际货运代理有限公司",
+                    "job": "总经理助理",
+                    "endTime": null,
+                    "work": "",
+                    "startTime": null
+                }
+            ],
+            "liveCity": ""
+        };
+        function replaceNullWithPlaceholder(data) {
+          for (let key in data) {
+            if (data.hasOwnProperty(key)) {
+              if (data[key] === null || data[key] === "") {
+                data[key] = "暂无";
+              } else if (typeof data[key] === "object") {
+                replaceNullWithPlaceholder(data[key]); // 递归处理嵌套对象
+              }
+            }
+          }
+        }
+
+
+        replaceNullWithPlaceholder(jsonData);
+        console.log(jsonData);
+        // 填充基本信息
+        document.getElementById("name").textContent = jsonData.name;
+        document.getElementById("birthtime").textContent = jsonData.birthtime;
+        document.getElementById("gender").textContent = jsonData.gender;
+        document.getElementById("phone").textContent = jsonData.phone;
+        document.getElementById("email").textContent = jsonData.email;
+        document.getElementById("political").textContent = jsonData.political;
+        document.getElementById("birthplace").textContent = jsonData.birthplace;
+        document.getElementById("liveCity").textContent = jsonData.liveCity;
+
+        // 填充教育经历
+        const educationContainer = document.getElementById("education");
+        educationContainer.innerHTML = '';
+        const educationItems = jsonData.schoolVOS;
+        educationItems.forEach((educationItem) => {
+            const ulElem = document.createElement("ul");
+            ulElem.className = "data-list";
+            const itemElem = document.createElement("li");
+            itemElem.className = "education-item";
+            itemElem.innerHTML = `
+                <span class="university">${educationItem.university}</span>，
+                <span class="major">${educationItem.major}</span>，
+                <span class="degree">${educationItem.degree}</span>，
+                <span class="startTime">${educationItem.startTime}</span>-<span class="endTime">${educationItem.endTime}</span>
+                <span class="description">${educationItem.description}</span>
+            `;
+            ulElem.appendChild(itemElem);
+            educationContainer.appendChild(ulElem);
+        });
+
+        // 填充项目经历
+        const projectContainer = document.getElementById("projects");
+        projectContainer.innerHTML = '';
+        const projectItems = jsonData.projectVos;
+        projectItems.forEach((projectItem) => {
+            const ulElem = document.createElement("ul");
+            ulElem.className = "data-list";
+            const itemElem = document.createElement("li");
+            itemElem.className = "project-item";
+            itemElem.innerHTML = `
+                <span class="project-name">${projectItem.projectName}</span>，
+                <span class="duty">${projectItem.duty}</span>，
+                <span class="startTime">${projectItem.startTime}</span>-<span class="endTime">${projectItem.endTime}</span>
+                <span class="project-content">${projectItem.projectContent}</span>
+            `;
+            ulElem.appendChild(itemElem);
+            projectContainer.appendChild(ulElem);
+        });
+
+        // 填充工作经历
+        const workContainer = document.getElementById("work");
+        workContainer.innerHTML = '';
+        const workItems = jsonData.workVOS;
+        workItems.forEach((workItem) => {
+            const ulElem = document.createElement("ul");
+            ulElem.className = "data-list";
+            const itemElem = document.createElement("li");
+            itemElem.className = "work-item";
+            itemElem.innerHTML = `
+                <h4 class="company">${workItem.company}</h4>
+                <p class="job">${workItem.job}</p>
+                <p class="time">${workItem.startTime} - ${workItem.endTime}</p>
+                <p class="work">${workItem.work}</p>
+            `;
+            ulElem.appendChild(itemElem);
+            workContainer.appendChild(ulElem);
+        });
+    });
+</script>
+</body>
+</html>

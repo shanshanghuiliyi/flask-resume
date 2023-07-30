@@ -1,0 +1,72 @@
+[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+    outline: 0;
+    background-color: transparent;
+    width: 450px;
+}
+[type="range"]::-webkit-slider-runnable-track {
+    height: 4px;
+    background: #eee;
+}
+[type="range" i]::-webkit-slider-container {
+    height: 20px;
+    overflow: hidden;
+}
+[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #4a89dc;
+    border: 1px solid transparent;
+    margin-top: -8px;
+    border-image: linear-gradient(#4a89dc,#4a89dc) 0 fill / 8 20 8 0 / 0px 0px 0 2000px;
+}
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+}
+
+[data-aos] {
+	opacity: 1 !important;
+	transform: translate(0px) scale(1) !important;
+}
+
+.c10122 {
+	width: 90%;
+}
+
+.c10178 {
+	width: 85%;
+}
+
+.c10234 {
+	width: 75%;
+}
+
+.c10299 {
+	width: 80%;
+}
+
+.c10355 {
+	width: 85%;
+}
+
+.c10411 {
+	width: 75%;
+}
+
+.c11141 {
+	resize: none;
+}
+
+input {
+    outline: none; // 去除选中状态边框
+    background-color: rgba(0, 0, 0, 0);// 透明背景
+}
